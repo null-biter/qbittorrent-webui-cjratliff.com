@@ -11,11 +11,12 @@
         <link rel="stylesheet" type="text/css" href="css/noscript.css?v=${CACHEID}" />
     </noscript>
     <script src="scripts/login.js?locale=${LANG}&v=${CACHEID}"></script>
+	<script src="scripts/mobile.js"></script>
 </head>
 
 <body>
     <noscript id="noscript">
-        <h1>JavaScript Required! You must enable JavaScript for the Web UI to work properly</h1>
+        <h1>JavaScript requerido! Você precisa ativar o JavaScript para a interface de usuário da web funcionar apropriadamente</h1>
     </noscript>
     <div id="main">
         <h1>qBittorrent Web UI</h1>
@@ -25,15 +26,15 @@
         <div id="formplace" class="col">
             <form id="loginform" method="post" onsubmit="submitLoginForm();">
                 <div class="row">
-                    <label for="username">Username</label><br />
+                    <label for="username">Nome de usuário</label><br />
                     <input type="text" id="username" name="username" autocomplete="username" />
                 </div>
                 <div class="row">
-                    <label for="password">Password</label><br />
+                    <label for="password">Senha</label><br />
                     <input type="password" id="password" name="password" autocomplete="current-password" />
                 </div>
                 <div class="row">
-                    <input type="submit" id="login" value="Login" />
+                    <input type="submit" id="login" value="Entrar" />
                 </div>
             </form>
         </div>

@@ -62,9 +62,11 @@ let recheckFN = function() {};
 let reannounceFN = function() {};
 let setLocationFN = function() {};
 let renameFN = function() {};
+let renameFilesFN = function() {};
 let torrentNewCategoryFN = function() {};
 let torrentSetCategoryFN = function() {};
 let createCategoryFN = function() {};
+let createSubcategoryFN = function() {};
 let editCategoryFN = function() {};
 let removeCategoryFN = function() {};
 let deleteUnusedCategoriesFN = function() {};
@@ -128,7 +130,7 @@ const initializeWindows = function() {
 
         new MochaUI.Window({
             id: id,
-            title: "Download from URLs",
+            title: "Baixar das URLs",
             loadMethod: 'iframe',
             contentURL: contentUri.toString(),
             addClass: 'windowFrame', // fixes iframe scrolling on iOS Safari
@@ -151,7 +153,7 @@ const initializeWindows = function() {
         const id = 'preferencesPage';
         new MochaUI.Window({
             id: id,
-            title: "Options",
+            title: "Opções",
             loadMethod: 'xhr',
             toolbar: true,
             contentURL: new URI("views/preferences.html").toString(),
@@ -176,7 +178,7 @@ const initializeWindows = function() {
         const id = 'uploadPage';
         new MochaUI.Window({
             id: id,
-            title: "Upload local torrent",
+            title: "Fazer upload do torrent local",
             loadMethod: 'iframe',
             contentURL: new URI("upload.html").toString(),
             addClass: 'windowFrame', // fixes iframe scrolling on iOS Safari
@@ -196,7 +198,7 @@ const initializeWindows = function() {
     globalUploadLimitFN = function() {
         new MochaUI.Window({
             id: 'uploadLimitPage',
-            title: "Global Upload Speed Limit",
+            title: "Limite da velocidade global do upload",
             loadMethod: 'iframe',
             contentURL: new URI("uploadlimit.html").setData("hashes", "global").toString(),
             scrollbars: false,
@@ -214,7 +216,7 @@ const initializeWindows = function() {
         if (hashes.length) {
             new MochaUI.Window({
                 id: 'uploadLimitPage',
-                title: "Torrent Upload Speed Limiting",
+                title: "Limitando a Velocidade de Upload do Torrent",
                 loadMethod: 'iframe',
                 contentURL: new URI("uploadlimit.html").setData("hashes", hashes.join("|")).toString(),
                 scrollbars: false,
@@ -238,7 +240,8 @@ const initializeWindows = function() {
             for (let i = 0; i < hashes.length; ++i) {
                 const hash = hashes[i];
                 const row = torrentsTable.rows[hash].full_data;
-                const origValues = row.ratio_limit + "|" + row.seeding_time_limit + "|" + row.max_ratio + "|" + row.max_seeding_time;
+                const origValues = row.ratio_limit + "|" + row.seeding_time_limit + "|" + row.inactive_seeding_time_limit + "|"
+                    + row.max_ratio + "|" + row.max_seeding_time + "|" + row.max_inactive_seeding_time;
 
                 // initialize value
                 if (shareRatio === null)
@@ -254,7 +257,7 @@ const initializeWindows = function() {
             const orig = torrentsHaveSameShareRatio ? shareRatio : "";
             new MochaUI.Window({
                 id: 'shareRatioPage',
-                title: "Torrent Upload/Download Ratio Limiting",
+                title: "Limite da proporção do upload/download do torrent",
                 loadMethod: 'iframe',
                 contentURL: new URI("shareratio.html").setData("hashes", hashes.join("|")).setData("orig", orig).toString(),
                 scrollbars: false,
@@ -328,7 +331,7 @@ const initializeWindows = function() {
     globalDownloadLimitFN = function() {
         new MochaUI.Window({
             id: 'downloadLimitPage',
-            title: "Global Download Speed Limit",
+            title: "Limite da velocidade global de download",
             loadMethod: 'iframe',
             contentURL: new URI("downloadlimit.html").setData("hashes", "global").toString(),
             scrollbars: false,
@@ -345,7 +348,7 @@ const initializeWindows = function() {
         const id = 'statisticspage';
         new MochaUI.Window({
             id: id,
-            title: 'Statistics',
+            title: 'Estatísticas',
             loadMethod: 'xhr',
             contentURL: new URI("views/statistics.html").toString(),
             maximizable: false,
@@ -363,7 +366,7 @@ const initializeWindows = function() {
         if (hashes.length) {
             new MochaUI.Window({
                 id: 'downloadLimitPage',
-                title: "Torrent Download Speed Limiting",
+                title: "Limitando a Velocidade de Download do Torrent",
                 loadMethod: 'iframe',
                 contentURL: new URI("downloadlimit.html").setData("hashes", hashes.join("|")).toString(),
                 scrollbars: false,
@@ -382,7 +385,7 @@ const initializeWindows = function() {
         if (hashes.length) {
             new MochaUI.Window({
                 id: 'confirmDeletionPage',
-                title: "Remove torrent(s)",
+                title: "Remover torrent(s)",
                 loadMethod: 'iframe',
                 contentURL: new URI("confirmdeletion.html").setData("hashes", hashes.join("|")).setData("deleteFiles", deleteFiles).toString(),
                 scrollbars: false,
@@ -486,7 +489,7 @@ const initializeWindows = function() {
 
             new MochaUI.Window({
                 id: 'setLocationPage',
-                title: "Set location",
+                title: "Definir local...",
                 loadMethod: 'iframe',
                 contentURL: new URI("setlocation.html").setData("hashes", hashes.join('|')).setData("path", encodeURIComponent(row.full_data.save_path)).toString(),
                 scrollbars: false,
@@ -508,7 +511,7 @@ const initializeWindows = function() {
             if (row) {
                 new MochaUI.Window({
                     id: 'renamePage',
-                    title: "Rename",
+                    title: "Renomear...",
                     loadMethod: 'iframe',
                     contentURL: new URI("rename.html").setData("hash", hash).setData("name", row.full_data.name).toString(),
                     scrollbars: false,
@@ -523,13 +526,38 @@ const initializeWindows = function() {
         }
     };
 
+    renameFilesFN = function() {
+        const hashes = torrentsTable.selectedRowsIds();
+        if (hashes.length == 1) {
+            const hash = hashes[0];
+            const row = torrentsTable.rows[hash];
+            if (row) {
+                new MochaUI.Window({
+                    id: 'multiRenamePage',
+                    title: "Renomeando",
+                    data: { hash: hash, selectedRows: [] },
+                    loadMethod: 'xhr',
+                    contentURL: 'rename_files.html',
+                    scrollbars: false,
+                    resizable: true,
+                    maximizable: false,
+                    paddingVertical: 0,
+                    paddingHorizontal: 0,
+                    width: 800,
+                    height: 420,
+                    resizeLimit: { 'x': [800], 'y': [420] }
+                });
+            }
+        }
+    };
+
     torrentNewCategoryFN = function() {
         const action = "set";
         const hashes = torrentsTable.selectedRowsIds();
         if (hashes.length) {
             new MochaUI.Window({
                 id: 'newCategoryPage',
-                title: "New Category",
+                title: "Nova categoria",
                 loadMethod: 'iframe',
                 contentURL: new URI("newcategory.html").setData("action", action).setData("hashes", hashes.join('|')).toString(),
                 scrollbars: false,
@@ -564,9 +592,28 @@ const initializeWindows = function() {
         const action = "create";
         new MochaUI.Window({
             id: 'newCategoryPage',
-            title: "New Category",
+            title: "Nova Categoria",
             loadMethod: 'iframe',
             contentURL: new URI("newcategory.html").setData("action", action).toString(),
+            scrollbars: false,
+            resizable: true,
+            maximizable: false,
+            paddingVertical: 0,
+            paddingHorizontal: 0,
+            width: 400,
+            height: 150
+        });
+        updateMainData();
+    };
+
+    createSubcategoryFN = function(categoryHash) {
+        const action = "createSubcategory";
+        const categoryName = category_list[categoryHash].name + "/";
+        new MochaUI.Window({
+            id: 'newSubcategoryPage',
+            title: "Nova categoria",
+            loadMethod: 'iframe',
+            contentURL: new URI("newcategory.html").setData("action", action).setData("categoryName", categoryName).toString(),
             scrollbars: false,
             resizable: true,
             maximizable: false,
@@ -584,7 +631,7 @@ const initializeWindows = function() {
         const savePath = category_list[categoryHash].savePath;
         new MochaUI.Window({
             id: 'editCategoryPage',
-            title: "Edit Category",
+            title: "Editar Categoria",
             loadMethod: 'iframe',
             contentURL: new URI('newcategory.html').setData("action", action).setData("categoryName", categoryName).setData("savePath", savePath).toString(),
             scrollbars: false,
@@ -659,7 +706,7 @@ const initializeWindows = function() {
         if (hashes.length) {
             new MochaUI.Window({
                 id: 'confirmDeletionPage',
-                title: "Remove torrent(s)",
+                title: "Remover torrent(s)",
                 loadMethod: 'iframe',
                 contentURL: new URI("confirmdeletion.html").setData("hashes", hashes.join("|")).toString(),
                 scrollbars: false,
@@ -679,7 +726,7 @@ const initializeWindows = function() {
         if (hashes.length) {
             new MochaUI.Window({
                 id: 'newTagPage',
-                title: "Add Tags",
+                title: "Adicionar etiquetas",
                 loadMethod: 'iframe',
                 contentURL: new URI("newtag.html").setData("action", action).setData("hashes", hashes.join("|")).toString(),
                 scrollbars: false,
@@ -725,7 +772,7 @@ const initializeWindows = function() {
         const action = "create";
         new MochaUI.Window({
             id: 'newTagPage',
-            title: "New Tag",
+            title: "Nova etiqueta",
             loadMethod: 'iframe',
             contentURL: new URI("newtag.html").setData("action", action).toString(),
             scrollbars: false,
@@ -800,7 +847,7 @@ const initializeWindows = function() {
         if (hashes.length) {
             new MochaUI.Window({
                 id: 'confirmDeletionPage',
-                title: "Remove torrent(s)",
+                title: "Remover torrent(s)",
                 loadMethod: 'iframe',
                 contentURL: new URI("confirmdeletion.html").setData("hashes", hashes.join("|")).toString(),
                 scrollbars: false,
@@ -886,7 +933,7 @@ const initializeWindows = function() {
         if (hashes.length) {
             new MochaUI.Window({
                 id: 'confirmDeletionPage',
-                title: "Remove torrent(s)",
+                title: "Remover torrent(s)",
                 loadMethod: 'iframe',
                 contentURL: new URI("confirmdeletion.html").setData("hashes", hashes.join("|")).toString(),
                 scrollbars: false,
@@ -958,12 +1005,12 @@ const initializeWindows = function() {
         return torrentsTable.selectedRowsIds().join("\n");
     };
 
-    exportTorrentFN = function() {
+    exportTorrentFN = async function() {
         const hashes = torrentsTable.selectedRowsIds();
         for (const hash of hashes) {
             const row = torrentsTable.rows.get(hash);
             if (!row)
-                return;
+                continue;
 
             const name = row.full_data.name;
             const url = new URI("api/v2/torrents/export");
@@ -972,17 +1019,20 @@ const initializeWindows = function() {
             // download response to file
             const element = document.createElement("a");
             element.setAttribute("href", url);
-            element.setAttribute("download", name + ".torrent");
+            element.setAttribute("download", (name + ".torrent"));
             document.body.appendChild(element);
             element.click();
             document.body.removeChild(element);
+
+            // https://stackoverflow.com/questions/53560991/automatic-file-downloads-limited-to-10-files-on-chrome-browser
+            await window.qBittorrent.Misc.sleep(200);
         }
     };
 
     addClickEvent('pauseAll', (e) => {
         new Event(e).stop();
 
-        if (confirm('Would you like to pause all torrents?')) {
+        if (confirm('Deseja pausar todos os torrents?')) {
             new Request({
                 url: 'api/v2/torrents/pause',
                 method: 'post',
@@ -997,7 +1047,7 @@ const initializeWindows = function() {
     addClickEvent('resumeAll', (e) => {
         new Event(e).stop();
 
-        if (confirm('Would you like to resume all torrents?')) {
+        if (confirm('Deseja retomar todos os torrents?')) {
             new Request({
                 url: 'api/v2/torrents/resume',
                 method: 'post',
@@ -1054,7 +1104,7 @@ const initializeWindows = function() {
         const id = 'aboutpage';
         new MochaUI.Window({
             id: id,
-            title: 'About qBittorrent',
+            title: 'Sobre o qBittorrent',
             loadMethod: 'xhr',
             contentURL: new URI("views/about.html").toString(),
             require: {
@@ -1084,12 +1134,12 @@ const initializeWindows = function() {
 
     addClickEvent('shutdown', function(e) {
         new Event(e).stop();
-        if (confirm('Are you sure you want to quit qBittorrent?')) {
+        if (confirm('Tem certeza de que você quer sair do qBittorrent?')) {
             new Request({
                 url: 'api/v2/app/shutdown',
                 method: 'post',
                 onSuccess: function() {
-                    document.write('<!doctype html><html lang="${LANG}"><head> <meta charset="UTF-8"> <title>qBittorrent has been shutdown</title></head><body> <h1 style="text-align: center;">qBittorrent has been shutdown</h1></body></html>');
+                    document.write('<!doctype html><html lang="${LANG}"><head> <meta charset="UTF-8"> <title>O qBittorrent foi fechado)QBT_TR[CONTEXT=HttpServer]</title></head><body> <h1 style="text-align: center;">O qBittorrent foi fechado</h1></body></html>');
                     document.close();
                     stop();
                 }

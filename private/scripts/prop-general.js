@@ -93,7 +93,7 @@ window.qBittorrent.PropGeneral = (function() {
             noCache: true,
             method: 'get',
             onFailure: function() {
-                $('error_div').set('html', 'qBittorrent client is not reachable');
+                $('error_div').set('html', 'O Cliente qBittorrent não é alcançável');
                 clearTimeout(loadTorrentDataTimer);
                 loadTorrentDataTimer = loadTorrentData.delay(10000);
             },
@@ -112,27 +112,27 @@ window.qBittorrent.PropGeneral = (function() {
 
                     $('eta').set('html', window.qBittorrent.Misc.friendlyDuration(data.eta, window.qBittorrent.Misc.MAX_ETA));
 
-                    temp = "%1 (%2 max)"
+                    temp = "%1 (%2 máx.)"
                         .replace("%1", data.nb_connections)
                         .replace("%2", data.nb_connections_limit < 0 ? "∞" : data.nb_connections_limit);
                     $('nb_connections').set('html', temp);
 
-                    temp = "%1 (%2 this session)"
+                    temp = "%1 (%2 nesta sessão)"
                         .replace("%1", window.qBittorrent.Misc.friendlyUnit(data.total_downloaded))
                         .replace("%2", window.qBittorrent.Misc.friendlyUnit(data.total_downloaded_session));
                     $('total_downloaded').set('html', temp);
 
-                    temp = "%1 (%2 this session)"
+                    temp = "%1 (%2 nesta sessão)"
                         .replace("%1", window.qBittorrent.Misc.friendlyUnit(data.total_uploaded))
                         .replace("%2", window.qBittorrent.Misc.friendlyUnit(data.total_uploaded_session));
                     $('total_uploaded').set('html', temp);
 
-                    temp = "%1 (%2 avg.)"
+                    temp = "%1 (%2 média)"
                         .replace("%1", window.qBittorrent.Misc.friendlyUnit(data.dl_speed, true))
                         .replace("%2", window.qBittorrent.Misc.friendlyUnit(data.dl_speed_avg, true));
                     $('dl_speed').set('html', temp);
 
-                    temp = "%1 (%2 avg.)"
+                    temp = "%1 (%2 média)"
                         .replace("%1", window.qBittorrent.Misc.friendlyUnit(data.up_speed, true))
                         .replace("%2", window.qBittorrent.Misc.friendlyUnit(data.up_speed_avg, true));
                     $('up_speed').set('html', temp);
@@ -162,25 +162,25 @@ window.qBittorrent.PropGeneral = (function() {
                     if (data.last_seen != -1)
                         temp = new Date(data.last_seen * 1000).toLocaleString();
                     else
-                        temp = "Never";
+                        temp = "Nunca";
                     $('last_seen').set('html', temp);
 
                     $('total_size').set('html', window.qBittorrent.Misc.friendlyUnit(data.total_size));
 
                     if (data.pieces_num != -1)
-                        temp = "%1 x %2 (have %3)"
+                        temp = "%1 x %2 (tem %3)"
                         .replace("%1", data.pieces_num)
                         .replace("%2", window.qBittorrent.Misc.friendlyUnit(data.piece_size))
                         .replace("%3", data.pieces_have);
                     else
-                        temp = "Unknown";
+                        temp = "Desconhecido";
                     $('pieces').set('html', temp);
 
                     $('created_by').set('text', data.created_by);
                     if (data.addition_date != -1)
                         temp = new Date(data.addition_date * 1000).toLocaleString();
                     else
-                        temp = "Unknown";
+                        temp = "Desconhecido";
 
                     $('addition_date').set('html', temp);
                     if (data.completion_date != -1)
@@ -193,7 +193,7 @@ window.qBittorrent.PropGeneral = (function() {
                     if (data.creation_date != -1)
                         temp = new Date(data.creation_date * 1000).toLocaleString();
                     else
-                        temp = "Unknown";
+                        temp = "Desconhecido";
                     $('creation_date').set('html', temp);
 
                     if (data.infohash_v1 === "")

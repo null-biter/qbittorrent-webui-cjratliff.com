@@ -244,7 +244,7 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
                         <select disabled id="addPausedCombobox" class="fullWidth">
                             <option value="default">Use global settings</option>
                             <option value="always">Always</option>
-                            <option value="never">Never</option>
+                            <option value="never">Nunca</option>
                         </select>
                     </td>
                 </tr>
@@ -258,8 +258,8 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
                         <select disabled id="contentLayoutCombobox" class="fullWidth">
                             <option value="Default">Use global settings</option>
                             <option value="Original">Original</option>
-                            <option value="Subfolder">Create subfolder</option>
-                            <option value="NoSubfolder">Don't create subfolder</option>
+                            <option value="Subfolder">Criar sub-pasta</option>
+                            <option value="NoSubfolder">Não criar sub-pasta</option>
                         </select>
                     </td>
                 </tr>
@@ -520,7 +520,7 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
         const renameRule = (rule) => {
             new MochaUI.Window({
                 id: 'renameRulePage',
-                title: 'Rule renaming',
+                title: 'Renomeação da regra',
                 loadMethod: 'iframe',
                 contentURL: 'rename_rule.html?rule=' + encodeURIComponent(rule),
                 scrollbars: false,

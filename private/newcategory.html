@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>New Category</title>
+    <title>Nova Categoria</title>
     <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" />
     <script src="scripts/lib/MooTools-Core-1.6.0-compat-compressed.js"></script>
@@ -59,7 +59,7 @@
                     if ((name === null) || (name === ""))
                         return false;
                     if (name.match("^([^\\\\\\/]|[^\\\\\\/]([^\\\\\\/]|\\/(?=[^\\/]))*[^\\\\\\/])$") === null) {
-                        alert("Invalid category name:\nPlease do not use any special characters in the category name.");
+                        alert("Nome de categoria inválido:\nPor favor não use quaisquer caracteres especiais no nome da categoria.");
                         return false;
                     }
                     return true;
@@ -91,7 +91,7 @@
                                 }).send();
                             },
                             onFailure: function() {
-                                alert("Unable to create category " + window.qBittorrent.Misc.escapeHtml(categoryName));
+                                alert("Incapaz de criar a categoria " + window.qBittorrent.Misc.escapeHtml(categoryName));
                             }
                         }).send();
                         break;
@@ -132,12 +132,12 @@
 
 <body>
     <div style="padding: 10px 10px 0px 10px;">
-        <p style="font-weight: bold;">Category:</p>
+        <p style="font-weight: bold;">Categoria:</p>
         <input type="text" id="categoryName" style="width: 99%;" />
-        <p style="font-weight: bold;">Save path:</p>
+        <p style="font-weight: bold;">Caminho do salvamento:</p>
         <input type="text" id="savePath" style="width: 99%;" />
         <div style="text-align: center; padding-top: 10px;">
-            <input class="button" type="button" value="Add" id="categoryNameButton" />
+            <input class="button" type="button" value="Adicionar" id="categoryNameButton" />
         </div>
     </div>
 </body>

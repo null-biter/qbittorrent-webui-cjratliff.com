@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Set location</title>
+    <title>Definir local</title>
     <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" />
     <script src="scripts/lib/MooTools-Core-1.6.0-compat-compressed.js"></script>
@@ -43,7 +43,7 @@
                 // check field
                 const location = $('setLocation').value.trim();
                 if ((location === null) || (location === "")) {
-                    $('error_div').set('text', 'Save path is empty');
+                    $('error_div').set('text', 'O caminho do salvamento está vazio');
                     return false;
                 }
 
@@ -69,11 +69,11 @@
 
 <body>
     <div style="padding: 10px 10px 0px 10px;">
-        <p style="font-weight: bold;">Location:</p>
+        <p style="font-weight: bold;">Local:</p>
         <input type="text" id="setLocation" autocorrect="off" autocapitalize="none" style="width: 99%;" />
         <div style="float: none; width: 99%;" id="error_div">&nbsp;</div>
         <div style="text-align: center; padding-top: 10px;">
-            <input class="button" type="button" value="Save" id="setLocationButton" />
+            <input class="button" type="button" value="Salvar" id="setLocationButton" />
         </div>
     </div>
 </body>

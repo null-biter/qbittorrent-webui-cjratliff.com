@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Torrent Upload/Download Ratio Limiting</title>
+    <title>Limite da proporção do upload/download do torrent</title>
     <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" />
     <script src="scripts/lib/MooTools-Core-1.6.0-compat-compressed.js"></script>
@@ -154,9 +154,9 @@
 
 <body>
     <div style="padding: 10px 10px 0px 10px;">
-        <input type="radio" name="shareLimit" id="default" value="default" onchange="shareLimitChanged()" checked style="margin-bottom: 5px;" />Use global share limit</br>
-        <input type="radio" name="shareLimit" value="none" onchange="shareLimitChanged()" style="margin-bottom: 5px;" />Set no share limit</br>
-        <input type="radio" name="shareLimit" value="custom" onchange="shareLimitChanged()" style="margin-bottom: 5px;" />Set share limit to</br>
+        <input type="radio" name="shareLimit" id="default" value="default" onchange="shareLimitChanged()" checked style="margin-bottom: 5px;" />Usar limite global de compartilhamento</br>
+        <input type="radio" name="shareLimit" value="none" onchange="shareLimitChanged()" style="margin-bottom: 5px;" />Não definir limite de compartilhamento</br>
+        <input type="radio" name="shareLimit" value="custom" onchange="shareLimitChanged()" style="margin-bottom: 5px;" />Definir limite de compartilhamento em</br>
 
         <div style="margin-left: 40px; margin-bottom: 5px;">
             <input type="checkbox" id="setRatio" class="shareLimitInput" onclick="enableInputBoxes()" />
@@ -165,11 +165,11 @@
         </div>
         <div style="margin-left: 40px; margin-bottom: 5px;">
             <input type="checkbox" id="setMinutes" class="shareLimitInput" onclick="enableInputBoxes()" />
-            <label for="setMinutes">minutes</label>
+            <label for="setMinutes">minutos</label>
             <input type="number" id="minutes" value="0" step="1" min="0" max="525600" class="shareLimitInput" />
         </div>
         <div style="text-align: center; padding-top: 10px;">
-            <input class="button" type="button" value="Save" id="save" />
+            <input class="button" type="button" value="Salvar" id="save" />
         </div>
     </div>
 </body>

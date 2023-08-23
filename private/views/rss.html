@@ -86,14 +86,14 @@
 <div id="rssView">
     <div id="rssTopBar">
         <div id="rssFetchingDisabled" class="invisible">
-            Fetching of RSS feeds is disabled now! You can enable it in application settings.
+            A busca de feeds do RSS está desativada agora! Você pode ativá-la nas configurações do programa.
         </div>
         <div id="rssButtonBar">
-            <button class="button" id="newSubscriptionButton" onclick="qBittorrent.Rss.addRSSFeed()">New subscription</button>
-            <button class="button" id="markReadButton" onclick="qBittorrent.Rss.markSelectedAsRead()">Mark items read</button>
-            <button class="button" id="updateAllButton" onclick="qBittorrent.Rss.refreshAllFeeds()">Update all</button>
+            <button class="button" id="newSubscriptionButton" onclick="qBittorrent.Rss.addRSSFeed()">Nova subscrição...</button>
+            <button class="button" id="markReadButton" onclick="qBittorrent.Rss.markSelectedAsRead()">Marcar itens como lidos</button>
+            <button class="button" id="updateAllButton" onclick="qBittorrent.Rss.refreshAllFeeds()">Atualizar todos</button>
 
-            <button class="button" id="rssDownloaderButton" class="alignRight" onclick="qBittorrent.Rss.openRssDownloader()">RSS Downloader...</button>
+            <button class="button" id="rssDownloaderButton" class="alignRight" onclick="qBittorrent.Rss.openRssDownloader()">Baixador do RSS...</button>
         </div>
     </div>
     <div id="rssContentView">
@@ -138,21 +138,21 @@
 </div>
 
 <ul id="rssFeedMenu" class="contextMenu">
-    <li><a href="#update"><img src="images/view-refresh.svg" alt="Update" /> Update</a></li>
-    <li><a href="#markRead"><img src="images/task-complete.svg" alt="Mark items read" /> Mark items read</a></li>
-    <li class="separator"><a href="#rename"><img src="images/edit-rename.svg" alt="Rename..." /> Rename...</a></li>
+    <li><a href="#update"><img src="images/view-refresh.svg" alt="Update" /> Atualizar</a></li>
+    <li><a href="#markRead"><img src="images/task-complete.svg" alt="Mark items read" /> Marcar itens como lidos</a></li>
+    <li class="separator"><a href="#rename"><img src="images/edit-rename.svg" alt="Rename..." /> Renomear...</a></li>
     <li><a href="#delete"><img src="images/edit-clear.svg" alt="Delete" /> Delete</a></li>
 
-    <li class="separator"><a href="#newSubscription"><img src="images/list-add.svg" alt="New subscription..." /> New subscription...</a></li>
+    <li class="separator"><a href="#newSubscription"><img src="images/list-add.svg" alt="New subscription..." /> Nova subscrição...</a></li>
     <li><a href="#newFolder"><img src="images/folder-new.svg" alt="New folder..." /> New folder...</a></li>
-    <li class="separator"><a href="#updateAll"><img src="images/view-refresh.svg" alt="Update all feeds" /> Update all feeds</a></li>
+    <li class="separator"><a href="#updateAll"><img src="images/view-refresh.svg" alt="Update all feeds" /> Atualizar todos os feeds</a></li>
 
-    <li class="separator"><a href="#copyFeedURL" id="CopyFeedURL"><img src="images/edit-copy.svg" alt="Copy feed URL" /> Copy feed URL</a></li>
+    <li class="separator"><a href="#copyFeedURL" id="CopyFeedURL"><img src="images/edit-copy.svg" alt="Copy feed URL" /> Copiar URL do feed</a></li>
 </ul>
 
 <ul id="rssArticleMenu" class="contextMenu">
-    <li><a href="#Download"><img src="images/downloading.svg" alt="Download torrent" /> Download torrent</a></li>
-    <li><a href="#OpenNews"><img src="images/application-url.svg" alt="Open news URL" /> Open news URL</a></li>
+    <li><a href="#Download"><img src="images/downloading.svg" alt="Download torrent" /> Baixar torrent</a></li>
+    <li><a href="#OpenNews"><img src="images/application-url.svg" alt="Open news URL" /> Abrir URL das notícias</a></li>
 </ul>
 
 <script>
@@ -599,7 +599,7 @@
                         // Unread entry at top
                         rssFeedTable.updateRowData({
                             rowId: 0,
-                            name: 'Unread',
+                            name: 'Não lido',
                             unread: 0,
                             status: 'unread',
                             indentation: 0,

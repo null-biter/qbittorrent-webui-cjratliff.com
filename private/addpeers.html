@@ -47,7 +47,7 @@
                         peers: peers.join('|')
                     },
                     onFailure: function() {
-                        alert("Unable to add peers. Please ensure you are adhering to the IP:port format.");
+                        alert("Incapaz de adicionar os peers. Por favor garanta que você está aderindo ao formato do IP:porta.");
                     },
                     onSuccess: function() {
                         window.parent.closeWindows();
@@ -60,10 +60,10 @@
 
 <body>
     <div style="padding: 10px 10px 0px 10px;">
-        <p>List of peers to add (one IP per line):</p>
-        <textarea id="peers" rows="10" style="width: 100%;" placeholder="Format: IPv4:port / [IPv6]:port"></textarea>
+        <p>Lista de peers para adicionar (um IP por linha):</p>
+        <textarea id="peers" rows="10" style="width: 100%;" placeholder="Formato: IPv4:porta / [IPv6]:porta"></textarea>
         <div style="margin-top: 10px; text-align: center;">
-            <button class="button" onclick="parent.closeWindows();">Cancel</button>
+            <button class="button" onclick="parent.closeWindows();">Cancelar</button>
             <button class="button" id="addPeersOk">Ok</button>
         </div>
     </div>

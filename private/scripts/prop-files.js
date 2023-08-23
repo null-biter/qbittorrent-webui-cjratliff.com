@@ -185,13 +185,13 @@ window.qBittorrent.PropFiles = (function() {
         select.addClass('combo_priority');
         select.addEvent('change', fileComboboxChanged);
 
-        createPriorityOptionElement(FilePriority.Ignored, (FilePriority.Ignored === selectedPriority), 'Do not download').injectInside(select);
+        createPriorityOptionElement(FilePriority.Ignored, (FilePriority.Ignored === selectedPriority), 'Não baixar').injectInside(select);
         createPriorityOptionElement(FilePriority.Normal, (FilePriority.Normal === selectedPriority), 'Normal').injectInside(select);
-        createPriorityOptionElement(FilePriority.High, (FilePriority.High === selectedPriority), 'High').injectInside(select);
-        createPriorityOptionElement(FilePriority.Maximum, (FilePriority.Maximum === selectedPriority), 'Maximum').injectInside(select);
+        createPriorityOptionElement(FilePriority.High, (FilePriority.High === selectedPriority), 'Alta').injectInside(select);
+        createPriorityOptionElement(FilePriority.Maximum, (FilePriority.Maximum === selectedPriority), 'Máxima').injectInside(select);
 
         // "Mixed" priority is for display only; it shouldn't be selectable
-        const mixedPriorityOption = createPriorityOptionElement(FilePriority.Mixed, (FilePriority.Mixed === selectedPriority), 'Mixed');
+        const mixedPriorityOption = createPriorityOptionElement(FilePriority.Mixed, (FilePriority.Mixed === selectedPriority), 'Misto');
         mixedPriorityOption.set('disabled', true);
         mixedPriorityOption.injectInside(select);
 
@@ -536,6 +536,51 @@ window.qBittorrent.PropFiles = (function() {
         setFilePriority(Object.keys(uniqueRowIds), Object.keys(uniqueFileIds), priority);
     };
 
+    const singleFileRename = function(hash) {
+        const rowId = torrentFilesTable.selectedRowsIds()[0];
+        if (rowId === undefined)
+            return;
+        const row = torrentFilesTable.rows[rowId];
+        if (!row)
+            return;
+
+        const node = torrentFilesTable.getNode(rowId);
+        const path = node.path;
+
+        new MochaUI.Window({
+            id: 'renamePage',
+            title: "Renaming",
+            loadMethod: 'iframe',
+            contentURL: 'rename_file.html?hash=' + hash + '&isFolder=' + node.isFolder
+                + '&path=' + encodeURIComponent(path),
+            scrollbars: false,
+            resizable: true,
+            maximizable: false,
+            paddingVertical: 0,
+            paddingHorizontal: 0,
+            width: 400,
+            height: 100
+        });
+    };
+
+    const multiFileRename = function(hash) {
+        new MochaUI.Window({
+            id: 'multiRenamePage',
+            title: "Renaming",
+            data: { hash: hash, selectedRows: torrentFilesTable.selectedRows },
+            loadMethod: 'xhr',
+            contentURL: 'rename_files.html',
+            scrollbars: false,
+            resizable: true,
+            maximizable: false,
+            paddingVertical: 0,
+            paddingHorizontal: 0,
+            width: 800,
+            height: 420,
+            resizeLimit: { 'x': [800], 'y': [420] }
+        });
+    };
+
     const torrentFilesContextMenu = new window.qBittorrent.ContextMenu.ContextMenu({
         targets: '#torrentFilesTableDiv tr',
         menu: 'torrentFilesMenu',
@@ -544,30 +589,13 @@ window.qBittorrent.PropFiles = (function() {
                 const hash = torrentsTable.getCurrentTorrentID();
                 if (!hash)
                     return;
-                const rowId = torrentFilesTable.selectedRowsIds()[0];
-                if (rowId === undefined)
-                    return;
-                const row = torrentFilesTable.rows[rowId];
-                if (!row)
-                    return;
 
-                const node = torrentFilesTable.getNode(rowId);
-                const path = node.path;
-
-                new MochaUI.Window({
-                    id: 'renamePage',
-                    title: "Renaming",
-                    loadMethod: 'iframe',
-                    contentURL: 'rename_file.html?hash=' + hash + '&isFolder=' + node.isFolder
-                        + '&path=' + encodeURIComponent(path),
-                    scrollbars: false,
-                    resizable: false,
-                    maximizable: false,
-                    paddingVertical: 0,
-                    paddingHorizontal: 0,
-                    width: 250,
-                    height: 100
-                });
+                if (torrentFilesTable.selectedRowsIds().length > 1) {
+                    multiFileRename(hash);
+                }
+                else {
+                    singleFileRename(hash);
+                }
             },
 
             FilePrioIgnore: function(element, ref) {

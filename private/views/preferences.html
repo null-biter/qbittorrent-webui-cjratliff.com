@@ -1,87 +1,87 @@
 <div id="DownloadsTab" class="PrefTab">
     <fieldset class="settings">
-        <legend>When adding a torrent</legend>
+        <legend>Quando adicionar um torrent</legend>
         <div class="formRow">
-            <label for="contentlayout_select">Torrent content layout:</label>
+            <label for="contentlayout_select">Layout do conteúdo do torrent:</label>
             <select id="contentlayout_select">
                 <option value="Original">Original</option>
-                <option value="Subfolder">Create subfolder</option>
-                <option value="NoSubfolder">Don't create subfolder</option>
+                <option value="Subfolder">Criar sub-pasta</option>
+                <option value="NoSubfolder">Não criar sub-pasta</option>
             </select>
         </div>
         <div class="formRow">
             <input type="checkbox" id="dontstartdownloads_checkbox" />
-            <label for="dontstartdownloads_checkbox">Do not start the download automatically</label>
+            <label for="dontstartdownloads_checkbox">Não iniciar o download automaticamente</label>
         </div>
         <div class="formRow">
-            <label for="stopConditionSelect">Torrent stop condition:</label>
+            <label for="stopConditionSelect">Condição de parada do torrent:</label>
             <select id="stopConditionSelect">
-                <option value="None">None</option>
-                <option value="MetadataReceived">Metadata received</option>
-                <option value="FilesChecked">Files checked</option>
+                <option value="None">Nenhuma</option>
+                <option value="MetadataReceived">Metadados recebidos</option>
+                <option value="FilesChecked">Arquivos verificados</option>
             </select>
         </div>
         <div class="formRow">
             <input type="checkbox" id="deletetorrentfileafter_checkbox" />
-            <label for="deletetorrentfileafter_checkbox">Delete .torrent files afterwards</label>
+            <label for="deletetorrentfileafter_checkbox">Apagar arquivos .torrent posteriormente</label>
         </div>
     </fieldset>
 
     <div class="formRow">
         <input type="checkbox" id="preallocateall_checkbox" />
-        <label for="preallocateall_checkbox">Pre-allocate disk space for all files</label>
+        <label for="preallocateall_checkbox">Pré-alocar espaço em disco para todos os arquivos</label>
     </div>
     <div class="formRow">
         <span id="appendexttr">
             <input type="checkbox" id="appendext_checkbox" />
-            <label for="appendext_checkbox">Append .!qB extension to incomplete files</label>
+            <label for="appendext_checkbox">Adicionar a extensão .!qB aos arquivos incompletos</label>
         </span>
     </div>
 
     <fieldset class="settings">
-        <legend>Saving Management</legend>
+        <legend>Gerenciamento do Salvamento</legend>
         <table>
             <tr>
                 <td>
-                    <label>Default Torrent Management Mode:</label>
+                    <label>Modo de gerenciamento padrão dos torrents:</label>
                 </td>
                 <td>
                     <select id="default_tmm_combobox">
-                        <option value="false" selected>Manual</option>
-                        <option value="true">Automatic</option>
+                        <option value="false">Manual</option>
+                        <option value="true" selected>Automático</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label>When Torrent Category changed:</label>
+                    <label>Quando a categoria do torrent for mudada:</label>
                 </td>
                 <td>
                     <select id="torrent_changed_tmm_combobox">
-                        <option value="true">Relocate torrent</option>
-                        <option value="false" selected>Switch torrent to Manual Mode</option>
+                        <option value="true">Re-alocar torrent</option>
+                        <option value="false" selected>Trocar o torrent pro modo manual</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label>When Default Save Path changed:</label>
+                    <label>Quando o caminho padrão do salvamento mudar:</label>
                 </td>
                 <td>
                     <select id="save_path_changed_tmm_combobox">
-                        <option value="true">Relocate affected torrents</option>
-                        <option value="false" selected>Switch affected torrents to Manual Mode</option>
+                        <option value="true">Re-alocar torrents afetados</option>
+                        <option value="false" selected>Trocar os torrents afetados pro modo manual</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label>When Category Save Path changed:</label>
+                    <label>Quando o caminho do salvamento da categoria mudar:</label>
                 </td>
                 <td>
                     <select id="category_changed_tmm_combobox">
-                        <option value="true">Relocate affected torrents</option>
-                        <option value="false" selected>Switch affected torrents to Manual Mode</option>
+                        <option value="true">Re-alocar torrents afetados</option>
+                        <option value="false" selected>Trocar os torrents afetados pro modo manual</option>
                     </select>
                 </td>
             </tr>
@@ -89,7 +89,7 @@
         <table>
             <tr>
                 <td>
-                    <label for="savepath_text">Default Save Path:</label>
+                    <label for="savepath_text">Caminho Padrão do Salvamento:</label>
                 </td>
                 <td>
                     <input type="text" id="savepath_text" autocorrect="off" autocapitalize="none" />
@@ -98,7 +98,7 @@
             <tr>
                 <td>
                     <input type="checkbox" id="temppath_checkbox" onclick="qBittorrent.Preferences.updateTempDirEnabled();" />
-                    <label for="temppath_checkbox">Keep incomplete torrents in:</label>
+                    <label for="temppath_checkbox">Manter torrents incompletos em:</label>
                 </td>
                 <td>
                     <input type="text" id="temppath_text" autocorrect="off" autocapitalize="none" />
@@ -107,7 +107,7 @@
             <tr>
                 <td>
                     <input type="checkbox" id="exportdir_checkbox" onclick="qBittorrent.Preferences.updateExportDirEnabled();" />
-                    <label for="exportdir_checkbox">Copy .torrent files to:</label>
+                    <label for="exportdir_checkbox">Copiar arquivos .torrent para:</label>
                 </td>
                 <td>
                     <input type="text" id="exportdir_text" autocorrect="off" autocapitalize="none" />
@@ -116,7 +116,7 @@
             <tr>
                 <td>
                     <input type="checkbox" id="exportdirfin_checkbox" onclick="qBittorrent.Preferences.updateExportDirFinEnabled();" />
-                    <label for="exportdirfin_checkbox">Copy .torrent files for finished downloads to:</label>
+                    <label for="exportdirfin_checkbox">Copiar os arquivos .torrent dos downloads concluídos para:</label>
                 </td>
                 <td>
                     <input type="text" id="exportdirfin_text" autocorrect="off" autocapitalize="none" />
@@ -126,12 +126,12 @@
     </fieldset>
 
     <fieldset class="settings">
-        <legend>Automatically add torrents from:</legend>
+        <legend>Adicionar automaticamente torrents de:</legend>
         <table id="watched_folders_tab" style="border: 1px solid black;">
             <thead>
                 <tr>
-                    <th>Monitored Folder</th>
-                    <th>Override Save Location</th>
+                    <th>Pasta monitorada</th>
+                    <th>Substituir o local do salvamento</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -141,7 +141,7 @@
     <fieldset class="settings">
         <legend>
             <input type="checkbox" id="excludedFileNamesCheckbox" onclick="qBittorrent.Preferences.updateExcludedFileNamesEnabled();" />
-            <label for="excludedFileNamesCheckbox">Excluded file names</label>
+            <label for="excludedFileNamesCheckbox">Nomes de arquivos excluídos</label>
         </legend>
         <textarea id="excludedFileNamesTextarea" rows="6" cols="70"></textarea>
     </fieldset>
@@ -149,12 +149,12 @@
     <fieldset class="settings">
         <legend>
             <input type="checkbox" id="mail_notification_checkbox" onclick="qBittorrent.Preferences.updateMailNotification();" />
-            <label for="mail_notification_checkbox">Email notification upon download completion</label>
+            <label for="mail_notification_checkbox">Notificação por email ao completar o download</label>
         </legend>
         <table>
             <tr>
                 <td>
-                    <label for="src_email_txt">From:</label>
+                    <label for="src_email_txt">De:</label>
                 </td>
                 <td>
                     <input type="text" id="src_email_txt" />
@@ -162,7 +162,7 @@
             </tr>
             <tr>
                 <td>
-                    <label for="dest_email_txt">To:</label>
+                    <label for="dest_email_txt">Para:</label>
                 </td>
                 <td>
                     <input type="text" id="dest_email_txt" />
@@ -170,7 +170,7 @@
             </tr>
             <tr>
                 <td>
-                    <label for="smtp_server_txt">SMTP server:</label>
+                    <label for="smtp_server_txt">Servidor SMTP:</label>
                 </td>
                 <td>
                     <input type="text" id="smtp_server_txt" />
@@ -178,17 +178,17 @@
             </tr>
         </table>
         <div class="formRow">
-            <input type="checkbox" id="mail_ssl_checkbox" /><label for="mail_ssl_checkbox">This server requires a secure connection (SSL)</label>
+            <input type="checkbox" id="mail_ssl_checkbox" /><label for="mail_ssl_checkbox">Este servidor requer uma conexão segura (SSL)</label>
         </div>
         <fieldset class="settings">
             <legend>
                 <input type="checkbox" id="mail_auth_checkbox" onclick="qBittorrent.Preferences.updateMailAuthSettings();" />
-                <label for="mail_auth_checkbox">Authentication</label>
+                <label for="mail_auth_checkbox">Autenticação</label>
             </legend>
             <table>
                 <tr>
                     <td>
-                        <label for="mail_username_text">Username:</label>
+                        <label for="mail_username_text">Nome de usuário:</label>
                     </td>
                     <td>
                         <input type="text" id="mail_username_text" />
@@ -196,7 +196,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="mail_password_text">Password:</label>
+                        <label for="mail_password_text">Senha:</label>
                     </td>
                     <td>
                         <input type="password" id="mail_password_text" />
@@ -208,88 +208,88 @@
 
     <fieldset class="settings">
         <legend>
-            Run external program
+            Executar programa externo
         </legend>
         <div class="formRow">
             <input type="checkbox" id="autorunOnTorrentAddedCheckbox" onclick="qBittorrent.Preferences.updateAutoRunOnTorrentAdded();" />
-            <label for="autorunOnTorrentAddedCheckbox">Run external program on torrent added</label>
+            <label for="autorunOnTorrentAddedCheckbox">Executar programa externo quando adicionar torrent</label>
             <input type="text" id="autorunOnTorrentAddedProgram" style="width: 400px;" />
         </div>
         <div class="formRow">
             <input type="checkbox" id="autorun_checkbox" onclick="qBittorrent.Preferences.updateAutoRun();" />
-            <label for="autorun_checkbox">Run external program on torrent finished</label>
+            <label for="autorun_checkbox">Executar programa externo quando finalizar torrent</label>
             <input type="text" id="autorunProg_txt" style="width: 400px;" />
         </div>
-        <div style="font-style: italic;">Supported parameters (case sensitive):
+        <div style="font-style: italic;">Parâmetros suportados (caso sensitivo):
             <ul>
-                <li>%N: Torrent name</li>
-                <li>%L: Category</li>
-                <li>%G: Tags (separated by comma)</li>
-                <li>%F: Content path (same as root path for multifile torrent)</li>
-                <li>%R: Root path (first torrent subdirectory path)</li>
-                <li>%D: Save path</li>
-                <li>%C: Number of files</li>
-                <li>%Z: Torrent size (bytes)</li>
-                <li>%T: Current tracker</li>
-                <li>%I: Info hash v1</li>
-                <li>%J: Info hash v2</li>
-                <li>%K: Torrent ID</li>
+                <li>%N: Nome do torrent</li>
+                <li>%L: Categoria</li>
+                <li>%G: Etiquetas (separadas por vírgula)</li>
+                <li>%F: Caminho do conteúdo (o mesmo do caminho raiz para torrent multi-arquivos)</li>
+                <li>%R: Caminho raiz (primeiro caminho do sub-diretório do torrent)</li>
+                <li>%D: Caminho do salvamento</li>
+                <li>%C: Número de arquivos</li>
+                <li>%Z: Tamanho do torrent (bytes)</li>
+                <li>%T: Tracker atual</li>
+                <li>%I: Informações do hash v1</li>
+                <li>%J: Informações do hash v2</li>
+                <li>%K: ID do torrent</li>
             </ul>
-            Tip: Encapsulate parameter with quotation marks to avoid text being cut off at whitespace (e.g., "%N")
+            Dica: Encapsular o parâmetro com aspas para evitar que o texto seja cortado nos espaços em branco (ex: "%N")
         </div>
     </fieldset>
 </div>
 
 <div id="ConnectionTab" class="PrefTab invisible">
     <div class="formRow">
-        <label>Peer connection protocol:</label>
+        <label>Protocolo de conexão dos peers:</label>
         <select id="enable_protocol_combobox">
-            <option value="0" selected>TCP and μTP</option>
+            <option value="0" selected>TCP e μTP</option>
             <option value="1">TCP</option>
             <option value="2">μTP</option>
         </select>
     </div>
     <fieldset class="settings">
-        <legend>Listening Port</legend>
+        <legend>Porta de Escuta</legend>
         <div class="formRow">
-            <label for="port_value">Port used for incoming connections:</label>
-            <input type="text" id="port_value" style="width: 4em;" title="Set to 0 to let your system pick an unused port" />
-            <button class="button" style="margin-left: 1em;" onclick="qBittorrent.Preferences.generateRandomPort();">Random</button>
+            <label for="port_value">Porta usada para conexões de entrada:</label>
+            <input type="text" id="port_value" style="width: 4em;" title="Defina em 0 para deixar seu sistema escolher uma porta não usada" />
+            <button class="button" style="margin-left: 1em;" onclick="qBittorrent.Preferences.generateRandomPort();">Aleatório</button>
         </div>
         <div class="formRow">
             <input type="checkbox" id="upnp_checkbox" />
-            <label for="upnp_checkbox">Use UPnP / NAT-PMP port forwarding from my router</label>
+            <label for="upnp_checkbox">Usar a abertura das portas UPnP / NAT-PMP do meu roteador</label>
         </div>
     </fieldset>
 
     <fieldset class="settings">
-        <legend>Connections Limits</legend>
+        <legend>Limites das Conexões</legend>
         <table>
             <tr>
                 <td>
                     <input type="checkbox" id="max_connec_checkbox" onclick="qBittorrent.Preferences.updateMaxConnecEnabled();" />
-                    <label for="max_connec_checkbox">Global maximum number of connections:</label>
+                    <label for="max_connec_checkbox">Número global máximo de conexões:</label>
                 </td>
                 <td><input type="text" id="max_connec_value" style="width: 4em;" /></td>
             </tr>
             <tr>
                 <td>
                     <input type="checkbox" id="max_connec_per_torrent_checkbox" onclick="qBittorrent.Preferences.updateMaxConnecPerTorrentEnabled();" />
-                    <label for="max_connec_per_torrent_checkbox">Maximum number of connections per torrent:</label>
+                    <label for="max_connec_per_torrent_checkbox">Número máximo de conexões por torrent:</label>
                 </td>
                 <td><input type="text" id="max_connec_per_torrent_value" style="width: 4em;" /></td>
             </tr>
             <tr>
                 <td>
                     <input type="checkbox" id="max_uploads_checkbox" onclick="qBittorrent.Preferences.updateMaxUploadsEnabled();" />
-                    <label for="max_uploads_checkbox">Global maximum number of upload slots:</label>
+                    <label for="max_uploads_checkbox">Número global máximo de slots de upload:</label>
                 </td>
                 <td><input type="text" id="max_uploads_value" style="width: 4em;" /></td>
             </tr>
             <tr>
                 <td>
                     <input type="checkbox" id="max_uploads_per_torrent_checkbox" onclick="qBittorrent.Preferences.updateMaxUploadsPerTorrentEnabled();" />
-                    <label for="max_uploads_per_torrent_checkbox">Maximum number of upload slots per torrent:</label>
+                    <label for="max_uploads_per_torrent_checkbox">Número máximo de slots de upload por torrent:</label>
                 </td>
                 <td><input type="text" id="max_uploads_per_torrent_value" style="width: 4em;" /></td>
             </tr>
@@ -297,28 +297,28 @@
     </fieldset>
 
     <fieldset class="settings">
-        <legend>Proxy Server</legend>
+        <legend>Servidor Proxy</legend>
         <table>
             <tr>
                 <td>
-                    <label for="peer_proxy_type_select">Type:</label>
+                    <label for="peer_proxy_type_select">Tipo:</label>
                 </td>
                 <td>
                     <select id="peer_proxy_type_select" onchange="qBittorrent.Preferences.updatePeerProxySettings();">
-                        <option value="none">(None)</option>
+                        <option value="none">(Nenhum)</option>
                         <option value="socks4">SOCKS4</option>
                         <option value="socks5">SOCKS5</option>
                         <option value="http">HTTP</option>
                     </select>
                 </td>
                 <td>
-                    <label for="peer_proxy_host_text">Host:</label>
+                    <label for="peer_proxy_host_text">Hospedeiro:</label>
                 </td>
                 <td>
                     <input type="text" id="peer_proxy_host_text" />
                 </td>
                 <td>
-                    <label for="peer_proxy_port_value">Port:</label>
+                    <label for="peer_proxy_port_value">Porta:</label>
                 </td>
                 <td>
                     <input type="text" id="peer_proxy_port_value" style="width: 4em;" />
@@ -327,25 +327,25 @@
         </table>
         <div class="formRow">
             <input type="checkbox" id="use_peer_proxy_checkbox" />
-            <label for="use_peer_proxy_checkbox">Use proxy for peer connections</label>
+            <label for="use_peer_proxy_checkbox">Usar proxy para conexões com os peers</label>
         </div>
         <div class="formRow">
             <input type="checkbox" id="proxy_only_for_torrents_checkbox" />
-            <label for="proxy_only_for_torrents_checkbox">Use proxy only for torrents</label>
+            <label for="proxy_only_for_torrents_checkbox">Usar proxy só para torrents</label>
         </div>
         <div class="formRow">
             <input type="checkbox" id="proxyHostnameLookupCheckbox" title="If checked, hostname lookups are done via the proxy." />
-            <label for="proxyHostnameLookupCheckbox">Use proxy for hostname lookup</label>
+            <label for="proxyHostnameLookupCheckbox">Usar proxy só para torrents</label>
         </div>
         <fieldset class="settings">
             <legend>
                 <input type="checkbox" id="peer_proxy_auth_checkbox" onclick="qBittorrent.Preferences.updatePeerProxyAuthSettings();" />
-                <label for="peer_proxy_auth_checkbox">Authentication</label>
+                <label for="peer_proxy_auth_checkbox">Autenticação</label>
             </legend>
             <table>
                 <tr>
                     <td>
-                        <label for="peer_proxy_username_text">Username:</label>
+                        <label for="peer_proxy_username_text">Nome de usuário:</label>
                     </td>
                     <td>
                         <input type="text" id="peer_proxy_username_text" />
@@ -353,7 +353,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="peer_proxy_password_text">Password:</label>
+                        <label for="peer_proxy_password_text">Senha:</label>
                     </td>
                     <td>
                         <input type="password" id="peer_proxy_password_text" />
@@ -361,7 +361,7 @@
                 </tr>
             </table>
             <div class="formRow">
-                <span>Info: The password is saved unencrypted</span>
+                <span>Informação: A senha é salva desencriptada</span>
             </div>
         </fieldset>
     </fieldset>
@@ -372,16 +372,16 @@
         </legend>
         <div class="formRow">
             <input type="checkbox" id="ipfilter_text_checkbox" onclick="qBittorrent.Preferences.updateFilterSettings();" />
-            <label for="ipfilter_text_checkbox">Filter path (.dat, .p2p, .p2b):</label>
+            <label for="ipfilter_text_checkbox">Caminho do filtro (.dat, .p2p, .p2b):</label>
             <input type="text" id="ipfilter_text" />
         </div>
         <div class="formRow">
             <input type="checkbox" id="ipfilter_trackers_checkbox" />
-            <label for="ipfilter_trackers_checkbox">Apply to trackers</label>
+            <label for="ipfilter_trackers_checkbox">Aplicar aos trackers</label>
         </div>
         <div class="formRow">
             <fieldset class="settings">
-                <legend>Manually banned IP addresses...</legend>
+                <legend>Endereços de IP banidos manualmente...</legend>
                 <textarea id="banned_IPs_textarea" rows="5" cols="70"></textarea>
             </fieldset>
         </div>
@@ -390,7 +390,7 @@
 
 <div id="SpeedTab" class="PrefTab invisible">
     <fieldset class="settings">
-        <legend>Global Rate Limits</legend>
+        <legend>Limites Globais da Taxa</legend>
         <table>
             <tr>
                 <td rowspan="2">
@@ -404,11 +404,11 @@
                 <td><input type="number" id="dl_limit_value" style="width: 4em;" min="0" />&nbsp;&nbsp;KiB/s</td>
             </tr>
         </table>
-        <i>0 means unlimited</i>
+        <i>0 significa ilimitado</i>
     </fieldset>
 
     <fieldset class="settings">
-        <legend>Alternative Rate Limits</legend>
+        <legend>Limites Alternativos da Taxa</legend>
         <table>
             <tr>
                 <td rowspan="2">
@@ -422,97 +422,97 @@
                 <td><input type="number" id="alt_dl_limit_value" style="width: 4em;" min="0" />&nbsp;&nbsp;KiB/s</td>
             </tr>
         </table>
-        <i>0 means unlimited</i>
+        <i>0 significa ilimitado</i>
 
         <fieldset class="settings">
             <legend>
                 <input type="checkbox" id="limitSchedulingCheckbox" onclick="qBittorrent.Preferences.updateSchedulingEnabled();" />
-                <label for="limitSchedulingCheckbox">Schedule the use of alternative rate limits</label>
+                <label for="limitSchedulingCheckbox">Agendar o uso dos limites alternativos da taxa</label>
             </legend>
             <div class="formRow">
-                From:
+                De:
                 <input type="text" id="schedule_from_hour" style="width: 1.5em;" />:<input type="text" id="schedule_from_min" style="width: 1.5em;" />
-                To:
+                Até:
                 <input type="text" id="schedule_to_hour" style="width: 1.5em;" />:<input type="text" id="schedule_to_min" style="width: 1.5em;" />
             </div>
             <div class="formRow">
-                When:
+                Quando:
                 <select id="schedule_freq_select">
-                    <option value="0">Every day</option>
-                    <option value="1">Weekdays</option>
-                    <option value="2">Weekends</option>
-                    <option value="3">Monday</option>
-                    <option value="4">Tuesday</option>
-                    <option value="5">Wednesday</option>
-                    <option value="6">Thursday</option>
-                    <option value="7">Friday</option>
-                    <option value="8">Saturday</option>
-                    <option value="9">Sunday</option>
+                    <option value="0">Todo dia</option>
+                    <option value="1">Dias da semana</option>
+                    <option value="2">Finais de semana</option>
+                    <option value="3">Segunda</option>
+                    <option value="4">Terça</option>
+                    <option value="5">Quarta</option>
+                    <option value="6">Quinta</option>
+                    <option value="7">Sexta</option>
+                    <option value="8">Sábado</option>
+                    <option value="9">Domingo</option>
                 </select>
             </div>
         </fieldset>
     </fieldset>
 
     <fieldset class="settings">
-        <legend>Rate Limits Settings</legend>
+        <legend>Configurações dos Limites da Taxa</legend>
         <div class="formRow">
             <input type="checkbox" id="limit_utp_rate_checkbox" />
-            <label for="limit_utp_rate_checkbox">Apply rate limit to µTP protocol</label>
+            <label for="limit_utp_rate_checkbox">Aplicar limite da taxa ao protocolo µTP</label>
         </div>
         <div class="formRow">
             <input type="checkbox" id="limit_tcp_overhead_checkbox" />
-            <label for="limit_tcp_overhead_checkbox">Apply rate limit to transport overhead</label>
+            <label for="limit_tcp_overhead_checkbox">Aplicar limite da taxa a sobrecarga do transporte</label>
         </div>
         <div class="formRow">
             <input type="checkbox" id="limit_lan_peers_checkbox" />
-            <label for="limit_lan_peers_checkbox">Apply rate limit to peers on LAN</label>
+            <label for="limit_lan_peers_checkbox">Aplicar limite da taxa pros peers na LAN</label>
         </div>
     </fieldset>
 </div>
 
 <div id="BittorrentTab" class="PrefTab invisible">
     <fieldset class="settings">
-        <legend>Privacy</legend>
+        <legend>Privacidade</legend>
         <div class="formRow">
             <input type="checkbox" id="dht_checkbox" />
-            <label for="dht_checkbox">Enable DHT (decentralized network) to find more peers</label>
+            <label for="dht_checkbox">Ativar DHT (rede decentralizada) para achar mais peers</label>
         </div>
         <div class="formRow">
             <input type="checkbox" id="pex_checkbox" />
-            <label for="pex_checkbox">Enable Peer Exchange (PeX) to find more peers</label>
+            <label for="pex_checkbox">Ativar Troca dos Peers (PeX) para achar mais peers</label>
         </div>
         <div class="formRow">
             <input type="checkbox" id="lsd_checkbox" />
-            <label for="lsd_checkbox">Enable Local Peer Discovery to find more peers</label>
+            <label for="lsd_checkbox">Achar Descoberta Local dos Peers para achar mais peers</label>
         </div>
         <div class="formRow">
-            <label for="encryption_select">Encryption mode:</label>
+            <label for="encryption_select">Modo de encriptação:</label>
             <select id="encryption_select">
-                <option value="0">Allow encryption</option>
-                <option value="1">Require encryption</option>
-                <option value="2">Disable encryption</option>
+                <option value="0">Permitir encriptação</option>
+                <option value="1">Requer encriptação</option>
+                <option value="2">Desativar encriptação</option>
             </select>
         </div>
         <div class="formRow">
             <input type="checkbox" id="anonymous_mode_checkbox" />
-            <label for="anonymous_mode_checkbox">Enable anonymous mode (<a target="_blank" href="https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode">More information</a>)</label>
+            <label for="anonymous_mode_checkbox">Ativar modo anônimo (<a target="_blank" href="https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode">Mais informações</a>)</label>
         </div>
     </fieldset>
 
     <div class="formRow">
-        <label for="maxActiveCheckingTorrents">Max active checking torrents:</label>
+        <label for="maxActiveCheckingTorrents">Máximo de torrents ativos em verificação:</label>
         <input type="number" id="maxActiveCheckingTorrents" style="width: 4em;" min="-1" />
     </div>
 
     <fieldset class="settings">
         <legend>
             <input type="checkbox" id="queueing_checkbox" onclick="qBittorrent.Preferences.updateQueueingSystem();" />
-            <label for="queueing_checkbox">Torrent Queueing</label>
+            <label for="queueing_checkbox">Torrents na Fila</label>
         </legend>
         <table>
             <tr>
                 <td>
-                    <label for="max_active_dl_value">Maximum active downloads:</label>
+                    <label for="max_active_dl_value">Máximo de downloads ativos:</label>
                 </td>
                 <td>
                     <input type="text" id="max_active_dl_value" style="width: 4em;" />
@@ -520,7 +520,7 @@
             </tr>
             <tr>
                 <td>
-                    <label for="max_active_up_value">Maximum active uploads:</label>
+                    <label for="max_active_up_value">Máximo de uploads ativos:</label>
                 </td>
                 <td>
                     <input type="text" id="max_active_up_value" style="width: 4em;" />
@@ -528,7 +528,7 @@
             </tr>
             <tr>
                 <td>
-                    <label for="max_active_to_value">Maximum active torrents:</label>
+                    <label for="max_active_to_value">Máximo de torrents ativos:</label>
                 </td>
                 <td>
                     <input type="text" id="max_active_to_value" style="width: 4em;" />
@@ -538,12 +538,12 @@
         <fieldset class="settings">
             <legend>
                 <input type="checkbox" id="dont_count_slow_torrents_checkbox" onclick="qBittorrent.Preferences.updateSlowTorrentsSettings();" />
-                <label for="dont_count_slow_torrents_checkbox">Do not count slow torrents in these limits</label>
+                <label for="dont_count_slow_torrents_checkbox">Não contar torrents lentos nestes limites</label>
             </legend>
             <table>
                 <tr>
                     <td>
-                        <label for="dl_rate_threshold">Download rate threshold:</label>
+                        <label for="dl_rate_threshold">Limite da taxa de download:</label>
                     </td>
                     <td>
                         <input type="text" id="dl_rate_threshold" style="width: 4em;" />&nbsp;&nbsp;KiB/s
@@ -551,7 +551,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="ul_rate_threshold">Upload rate threshold:</label>
+                        <label for="ul_rate_threshold">Limite da taxa de upload:</label>
                     </td>
                     <td>
                         <input type="text" id="ul_rate_threshold" style="width: 4em;" />&nbsp;&nbsp;KiB/s
@@ -559,10 +559,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="torrent_inactive_timer">Torrent inactivity timer:</label>
+                        <label for="torrent_inactive_timer">Cronômetro da inatividade do torrent:</label>
                     </td>
                     <td>
-                        <input type="text" id="torrent_inactive_timer" style="width: 4em;" />&nbsp;&nbsp;seconds
+                        <input type="text" id="torrent_inactive_timer" style="width: 4em;" />&nbsp;&nbsp;segundos
                     </td>
                 </tr>
             </table>
@@ -570,12 +570,12 @@
     </fieldset>
 
     <fieldset class="settings">
-        <legend>Seeding Limits</legend>
+        <legend>Limites do Seeding</legend>
         <table>
             <tr>
                 <td>
                     <input type="checkbox" id="max_ratio_checkbox" onclick="qBittorrent.Preferences.updateMaxRatioTimeEnabled();" />
-                    <label for="max_ratio_checkbox">When ratio reaches</label>
+                    <label for="max_ratio_checkbox">Quando a proporção alcançar</label>
                 </td>
                 <td>
                     <input type="text" id="max_ratio_value" style="width: 4em;" />
@@ -584,20 +584,20 @@
             <tr>
                 <td>
                     <input type="checkbox" id="max_seeding_time_checkbox" onclick="qBittorrent.Preferences.updateMaxRatioTimeEnabled();" />
-                    <label for="max_seeding_time_checkbox">When seeding time reaches</label>
+                    <label for="max_seeding_time_checkbox">Quando o tempo do seeding alcançar</label>
                 </td>
                 <td>
-                    <input type="text" id="max_seeding_time_value" style="width: 4em;" />minutes
+                    <input type="text" id="max_seeding_time_value" style="width: 4em;" />minutos
                 </td>
             </tr>
             <tr>
-                <td style="text-align: right;"><label for="max_ratio_act">then</label></td>
+                <td style="text-align: right;"><label for="max_ratio_act">então</label></td>
                 <td>
                     <select id="max_ratio_act">
-                        <option value="0">Pause torrent</option>
-                        <option value="1">Remove torrent</option>
-                        <option value="3">Remove torrent and its files</option>
-                        <option value="2">Enable super seeding for torrent</option>
+                        <option value="0">Pausar torrent</option>
+                        <option value="1">Remover torrent</option>
+                        <option value="3">Remover o torrent e seus arquivos</option>
+                        <option value="2">Ativar super seeding pro torrent</option>
                     </select>
                 </td>
             </tr>
@@ -607,7 +607,7 @@
     <fieldset class="settings">
         <legend>
             <input type="checkbox" id="add_trackers_checkbox" onclick="qBittorrent.Preferences.updateAddTrackersEnabled();" />
-            <label for="add_trackers_checkbox">Automatically add these trackers to new downloads:</label>
+            <label for="add_trackers_checkbox">Automaticamente adicionar estes trackers aos novos downloads:</label>
         </legend>
         <textarea id="add_trackers_textarea" rows="5" cols="70"></textarea>
     </fieldset>
@@ -615,15 +615,15 @@
 
 <div id="RSSTab" class="PrefTab invisible">
     <fieldset class="settings">
-        <legend>RSS Reader</legend>
+        <legend>Leitor de RSS</legend>
         <div class="formRow">
             <input type="checkbox" id="enable_fetching_rss_feeds_checkbox" />
-            <label for="enable_fetching_rss_feeds_checkbox">Enable fetching RSS feeds</label>
+            <label for="enable_fetching_rss_feeds_checkbox">Ativar a busca de feeds do RSS</label>
         </div>
         <table>
             <tr>
                 <td>
-                    <label for="feed_refresh_interval">Feeds refresh interval:</label>
+                    <label for="feed_refresh_interval">Intervalo de atualização dos feeds:</label>
                 </td>
                 <td>
                     <input type="text" id="feed_refresh_interval" style="width: 4em;" />&nbsp;&nbsp; min
@@ -631,7 +631,7 @@
             </tr>
             <tr>
                 <td>
-                    <label for="maximum_article_number">Maximum number of articles per feed:</label>
+                    <label for="maximum_article_number">Número máximo de artigos por feed:</label>
                 </td>
                 <td>
                     <input type="text" id="maximum_article_number" style="width: 4em;" />
@@ -641,22 +641,22 @@
     </fieldset>
 
     <fieldset class="settings">
-        <legend>RSS Torrent Auto Downloader</legend>
+        <legend>Baixador automático dos torrents do RSS</legend>
         <div class="formRow">
             <input type="checkbox" id="enable_auto_downloading_rss_torrents_checkbox" />
-            <label for="enable_auto_downloading_rss_torrents_checkbox">Enable auto downloading of RSS torrents</label>
+            <label for="enable_auto_downloading_rss_torrents_checkbox">Ativar download automático dos torrents do RSS</label>
         </div>
-        <button class="button" style="margin: 0 1em; width: calc(100% - 2.2em)" onclick="window.qBittorrent.Rss.openRssDownloader();">Edit auto downloading rules...</button>
+        <button class="button" style="margin: 0 1em; width: calc(100% - 2.2em)" onclick="window.qBittorrent.Rss.openRssDownloader();">Editar regras do download automático...</button>
     </fieldset>
 
     <fieldset class="settings">
-        <legend>RSS Smart Episode Filter</legend>
+        <legend>Filtros dos Episódios Inteligentes do RSS</legend>
         <div class="formRow">
             <input type="checkbox" id="downlock_repack_proper_episodes" />
 
-            <label for="downlock_repack_proper_episodes">Download REPACK/PROPER episodes</label>
+            <label for="downlock_repack_proper_episodes">Baixar episódios REPACK/PROPER</label>
         </div>
-        <label for="rss_filter_textarea">Filters:</label><br>
+        <label for="rss_filter_textarea">Filtros:</label><br>
         <textarea id="rss_filter_textarea" rows="6" cols="70"></textarea>
     </fieldset>
 </div>
@@ -664,7 +664,7 @@
 <div id="WebUITab" class="PrefTab invisible">
     <fieldset class="settings">
         <legend>Language</legend>
-        <label for="locale_select">User Interface Language:</label>
+        <label for="locale_select">Idioma da interface de usuário:</label>
         <select id="locale_select">
             <option value="ar_AE">عربي</option>
             <option value="az@latin">Azərbaycan dili</option>
@@ -727,36 +727,36 @@
 
     <div class="formRow">
         <input type="checkbox" id="performanceWarning" />
-        <label for="performanceWarning">Log performance warnings</label>
+        <label for="performanceWarning">Registrar avisos sobre a performance</label>
     </div>
 
     <fieldset class="settings">
-        <legend>Web User Interface (Remote control)</legend>
+        <legend>Interface de Usuário da Web (Controle remoto)</legend>
         <table>
             <tr>
                 <td>
-                    <label for="webui_address_value">IP address:</label>
+                    <label for="webui_address_value">Endereço de IP:</label>
                 </td>
                 <td>
                     <input type="text" id="webui_address_value" />
-                    <label for="webui_port_value" style="margin-left: 10px;">Port:</label>
+                    <label for="webui_port_value" style="margin-left: 10px;">Porta:</label>
                     <input type="text" id="webui_port_value" style="width: 4em;" />
                 </td>
             </tr>
         </table>
         <div class="formRow">
             <input type="checkbox" id="webui_upnp_checkbox" />
-            <label for="webui_upnp_checkbox">Use UPnP / NAT-PMP to forward the port from my router</label>
+            <label for="webui_upnp_checkbox">Usar UPnP / NAT-PMP para abrir a porta do meu roteador</label>
         </div>
         <fieldset class="settings">
             <legend>
                 <input type="checkbox" id="use_https_checkbox" onclick="qBittorrent.Preferences.updateHttpsSettings();" />
-                <label for="use_https_checkbox">Use HTTPS instead of HTTP</label>
+                <label for="use_https_checkbox">Usar HTTPS ao invés do HTTP</label>
             </legend>
             <table>
                 <tr>
                     <td>
-                        <label for="ssl_cert_text">Certificate:</label>
+                        <label for="ssl_cert_text">Certificado:</label>
                     </td>
                     <td>
                         <input type="text" id="ssl_cert_text" style="width: 30em;" />
@@ -764,22 +764,22 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="ssl_key_text">Key:</label>
+                        <label for="ssl_key_text">Chave:</label>
                     </td>
                     <td>
                         <input type="text" id="ssl_key_text" style="width: 30em;" />
                     </td>
                 </tr>
             </table>
-            <div style="padding-left: 10px;"><a target="_blank" href="https://httpd.apache.org/docs/current/ssl/ssl_faq.html#aboutcerts">Information about certificates</a></div>
+            <div style="padding-left: 10px;"><a target="_blank" href="https://httpd.apache.org/docs/current/ssl/ssl_faq.html#aboutcerts">Informações sobre os certificados</a></div>
         </fieldset>
 
         <fieldset class="settings">
-            <legend>Authentication</legend>
+            <legend>Autenticação</legend>
             <table>
                 <tr>
                     <td>
-                        <label for="webui_username_text">Username:</label>
+                        <label for="webui_username_text">Nome de usuário:</label>
                     </td>
                     <td>
                         <input type="text" id="webui_username_text" />
@@ -787,7 +787,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="webui_password_text">Password:</label>
+                        <label for="webui_password_text">Senha:</label>
                     </td>
                     <td>
                         <input type="password" id="webui_password_text" placeholder="Change current password" autocomplete="new-password" />
@@ -796,39 +796,39 @@
             </table>
             <div class="formRow">
                 <input type="checkbox" id="bypass_local_auth_checkbox" />
-                <label for="bypass_local_auth_checkbox">Bypass authentication for clients on localhost</label>
+                <label for="bypass_local_auth_checkbox">Ignorar autenticação para clientes no hospedeiro local</label>
             </div>
             <div class="formRow">
                 <input type="checkbox" id="bypass_auth_subnet_whitelist_checkbox" onclick="qBittorrent.Preferences.updateBypasssAuthSettings();" />
-                <label for="bypass_auth_subnet_whitelist_checkbox">Bypass authentication for clients in whitelisted IP subnets</label>
+                <label for="bypass_auth_subnet_whitelist_checkbox">Ignorar autenticação para clientes nas sub-redes dos IPs da lista branca</label>
             </div>
             <div class="formRow" style="padding-left: 30px; padding-top: 5px;">
                 <textarea id="bypass_auth_subnet_whitelist_textarea" rows="5" cols="48" placeholder="Example: 172.17.32.0/24, fdff:ffff:c8::/40"></textarea>
             </div>
             <table>
                 <tr>
-                    <td><label for="webUIMaxAuthFailCountInput">Ban client after consecutive failures:</label></td>
+                    <td><label for="webUIMaxAuthFailCountInput">Banir cliente após falhas consecutivas:</label></td>
                     <td><input type="number" id="webUIMaxAuthFailCountInput" style="width: 4em;" min="0" /></td>
                 </tr>
                 <tr>
-                    <td style="text-align: right;"><label for="webUIBanDurationInput">ban for:</label></td>
-                    <td><input type="number" id="webUIBanDurationInput" style="width: 4em;" min="1" />seconds</td>
+                    <td style="text-align: right;"><label for="webUIBanDurationInput">banir por:</label></td>
+                    <td><input type="number" id="webUIBanDurationInput" style="width: 4em;" min="1" />segundos</td>
                 </tr>
             </table>
             <table>
                 <tr>
-                    <td><label for="webUISessionTimeoutInput">Session timeout:</label></td>
-                    <td><input type="number" id="webUISessionTimeoutInput" style="width: 4em;" min="0" />&nbsp;&nbsp;seconds</td>
+                    <td><label for="webUISessionTimeoutInput">Tempo para encerrar a sessão:</label></td>
+                    <td><input type="number" id="webUISessionTimeoutInput" style="width: 4em;" min="0" />&nbsp;&nbsp;segundos</td>
                 </tr>
             </table>
         </fieldset>
 
         <fieldset class="settings">
             <legend><input type="checkbox" id="use_alt_webui_checkbox" onclick="qBittorrent.Preferences.updateAlternativeWebUISettings();" />
-                <label for="use_alt_webui_checkbox">Use alternative Web UI</label>
+                <label for="use_alt_webui_checkbox">Usar interface alternativa de usuário da web</label>
             </legend>
             <div class="formRow">
-                <label for="webui_files_location_textarea">Files location:</label>
+                <label for="webui_files_location_textarea">Local dos arquivos:</label>
                 <input type="text" id="webui_files_location_textarea" />
             </div>
         </fieldset>
@@ -837,33 +837,33 @@
             <legend>Security</legend>
             <div class="formRow">
                 <input type="checkbox" id="clickjacking_protection_checkbox" />
-                <label for="clickjacking_protection_checkbox">Enable clickjacking protection</label>
+                <label for="clickjacking_protection_checkbox">Ativar proteção contra clickjacking</label>
             </div>
             <div class="formRow">
                 <input type="checkbox" id="csrf_protection_checkbox" />
-                <label for="csrf_protection_checkbox">Enable Cross-Site Request Forgery (CSRF) protection</label>
+                <label for="csrf_protection_checkbox">Ativar proteção contra falsificação de requisição de site cruzado (CSRF)</label>
             </div>
             <div class="formRow">
                 <input type="checkbox" id="secureCookieCheckbox" />
-                <label for="secureCookieCheckbox">Enable cookie Secure flag (requires HTTPS)</label>
+                <label for="secureCookieCheckbox">Ativar bandeira segura do cookie (requer HTTPS)</label>
             </div>
 
             <fieldset class="settings">
                 <legend>
                     <input type="checkbox" id="host_header_validation_checkbox" onclick="qBittorrent.Preferences.updateHostHeaderValidationSettings();" />
-                    <label for="host_header_validation_checkbox">Enable Host header validation</label>
+                    <label for="host_header_validation_checkbox">Ativar validação do cabeçalho do hospedeiro</label>
                 </legend>
                 <table>
                     <tr>
                         <td>
-                            <label for="webui_domain_textarea">Server domains:</label>
+                            <label for="webui_domain_textarea">Domínios do servidor:</label>
                         </td>
                         <td>
-                            <textarea id="webui_domain_textarea" rows="1" cols="60" title="Whitelist for filtering HTTP Host header values.
-In order to defend against DNS rebinding attack,
-you should put in domain names used by WebUI server.
+                            <textarea id="webui_domain_textarea" rows="1" cols="60" title="Lista de permissões para filtrar valores de cabeçalho de host HTTP.
+Para se defender contra o ataque de religação de DNS,
+você deve colocar nomes de domínio usados pelo servidor WebUI.
 
-Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
+Usar ';' para dividir várias entradas. Pode usar curinga '*'."></textarea>
                         </td>
                     </tr>
                 </table>
@@ -873,19 +873,19 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
         <fieldset class="settings">
             <legend>
                 <input type="checkbox" id="webUIUseCustomHTTPHeadersCheckbox" onclick="qBittorrent.Preferences.updateWebUICustomHTTPHeadersSettings();" />
-                <label for="webUIUseCustomHTTPHeadersCheckbox">Add custom HTTP headers</label>
+                <label for="webUIUseCustomHTTPHeadersCheckbox">Adicionar cabeçalhos HTTP personalizados</label>
             </legend>
-            <textarea id="webUICustomHTTPHeadersTextarea" placeholder="Header: value pairs, one per line" style="width: 90%;"></textarea>
+            <textarea id="webUICustomHTTPHeadersTextarea" placeholder="Cabeçalho: pares de valores, um por linha" style="width: 90%;"></textarea>
         </fieldset>
 
         <fieldset class="settings">
             <legend>
                 <input type="checkbox" id="webUIReverseProxySupportCheckbox" onclick="qBittorrent.Preferences.updateWebUIReverseProxySettings();" />
-                <label for="webUIReverseProxySupportCheckbox">Enable reverse proxy support</label>
+                <label for="webUIReverseProxySupportCheckbox">Ativar suporte pro proxy reverso</label>
             </legend>
             <div class="formRow">
-                <label for="webUIReverseProxiesListTextarea">Trusted proxies list:</label>
-                <input type="text" id="webUIReverseProxiesListTextarea" title="Specify reverse proxy IPs (or subnets, e.g. 0.0.0.0/24) in order to use forwarded client address (X-Forwarded-For header). Use ';' to split multiple entries." />
+                <label for="webUIReverseProxiesListTextarea">Lista de proxies confiáveis:</label>
+                <input type="text" id="webUIReverseProxiesListTextarea" title="Especifique IPs de proxy reverso (ou sub-redes, por exemplo, 0.0.0.0/24) para usar o endereço do cliente encaminhado (cabeçalho X-Forwarded-For). Usar ';' para dividir várias entradas." />
             </div>
         </fieldset>
 
@@ -894,17 +894,17 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
     <fieldset class="settings">
         <legend>
             <input type="checkbox" id="use_dyndns_checkbox" onclick="qBittorrent.Preferences.updateDynDnsSettings();" />
-            <label for="use_dyndns_checkbox">Update my dynamic domain name</label>
+            <label for="use_dyndns_checkbox">Atualizar meu nome de domínio dinâmico</label>
         </legend>
         <select id="dyndns_select">
             <option value="0">DynDNS</option>
             <option value="1">NO-IP</option>
         </select>
-        <input class="button" type="button" value="Register" onclick="qBittorrent.Preferences.registerDynDns();" />
+        <input class="button" type="button" value="Registrar" onclick="qBittorrent.Preferences.registerDynDns();" />
         <table style="margin-top: 10px;">
             <tr>
                 <td>
-                    <label for="dyndns_domain_text">Domain name:</label>
+                    <label for="dyndns_domain_text">Nome do domínio:</label>
                 </td>
                 <td>
                     <input type="text" id="dyndns_domain_text" />
@@ -912,7 +912,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="dyndns_username_text">Username:</label>
+                    <label for="dyndns_username_text">Nome de usuário:</label>
                 </td>
                 <td>
                     <input type="text" id="dyndns_username_text" />
@@ -920,7 +920,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="dyndns_password_text">Password:</label>
+                    <label for="dyndns_password_text">Senha:</label>
                 </td>
                 <td>
                     <input type="password" id="dyndns_password_text" />
@@ -932,11 +932,11 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
 
 <div id="AdvancedTab" class="PrefTab invisible">
     <fieldset class="settings">
-        <legend>qBittorrent Section&nbsp;(<a href="https://github.com/qbittorrent/qBittorrent/wiki/Explanation-of-Options-in-qBittorrent#Advanced" target="_blank">Open documentation</a>)</legend>
+        <legend>Seção do qBittorrent&nbsp;(<a href="https://github.com/qbittorrent/qBittorrent/wiki/Explanation-of-Options-in-qBittorrent#Advanced" target="_blank">Abrir documentação</a>)</legend>
         <table>
             <tr>
                 <td>
-                    <label for="memoryWorkingSetLimit">Physical memory (RAM) usage limit (applied if libtorrent >= 2.0):&nbsp;<a href="https://wikipedia.org/wiki/Working_set" target="_blank">(?)</a></label>
+                    <label for="memoryWorkingSetLimit">Limite de uso da memória física (RAM) (aplicado se libtorrent >= 2.0):&nbsp;<a href="https://wikipedia.org/wiki/Working_set" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="memoryWorkingSetLimit" style="width: 15em;" title="This option is less effective on Linux">&nbsp;&nbsp;MiB
@@ -944,7 +944,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="networkInterface">Network interface:</label>
+                    <label for="networkInterface">Interface de rede:</label>
                 </td>
                 <td>
                     <select id="networkInterface" style="width: 15em;">
@@ -953,7 +953,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="optionalIPAddressToBind">Optional IP address to bind to:</label>
+                    <label for="optionalIPAddressToBind">Endereço de IP opcional para se conectar:</label>
                 </td>
                 <td>
                     <select id="optionalIPAddressToBind" style="width: 15em;">
@@ -962,7 +962,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="saveResumeDataInterval">Save resume data interval:</label>
+                    <label for="saveResumeDataInterval">Salvar o intervalo de dados de retomada:</label>
                 </td>
                 <td>
                     <input type="text" id="saveResumeDataInterval" style="width: 15em;">&nbsp;&nbsp;min
@@ -970,7 +970,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="recheckTorrentsOnCompletion">Recheck torrents on completion:</label>
+                    <label for="recheckTorrentsOnCompletion">Verificar torrents de novo ao completar:</label>
                 </td>
                 <td>
                     <input type="checkbox" id="recheckTorrentsOnCompletion">
@@ -978,15 +978,15 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="refreshInterval">Refresh interval:</label>
+                    <label for="refreshInterval">Intervalo de atualização:</label>
                 </td>
                 <td>
-                    <input type="text" id="refreshInterval" style="width: 15em;" title="It controls the internal state update interval which in turn will affect UI updates">&nbsp;&nbsp;ms
+                    <input type="text" id="refreshInterval" style="width: 15em;" title="Ele controla o intervalo de atualização do estado interno que, por sua vez, afetará as atualizações da interface do usuário">&nbsp;&nbsp;ms
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="resolvePeerCountries">Resolve peer countries:</label>
+                    <label for="resolvePeerCountries">Revelar os países dos peers:</label>
                 </td>
                 <td>
                     <input type="checkbox" id="resolvePeerCountries">
@@ -994,7 +994,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="reannounceWhenAddressChanged">Reannounce to all trackers when IP or port changed:</label>
+                    <label for="reannounceWhenAddressChanged">Reanunciar para todos os trackers quando o IP ou porta for alterado:</label>
                 </td>
                 <td>
                     <input type="checkbox" id="reannounceWhenAddressChanged" />
@@ -1002,7 +1002,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="enableEmbeddedTracker">Enable embedded tracker:</label>
+                    <label for="enableEmbeddedTracker">Ativar tracker embutido:</label>
                 </td>
                 <td>
                     <input type="checkbox" id="enableEmbeddedTracker" />
@@ -1010,7 +1010,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="embeddedTrackerPort">Embedded tracker port:</label>
+                    <label for="embeddedTrackerPort">Porta do tracker embutido:</label>
                 </td>
                 <td>
                     <input type="text" id="embeddedTrackerPort" style="width: 15em;" />
@@ -1018,7 +1018,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="embeddedTrackerPortForwarding">Enable port forwarding for embedded tracker:</label>
+                    <label for="embeddedTrackerPortForwarding">Habilitar encaminhamento de porta para rastreador incorporado:</label>
                 </td>
                 <td>
                     <input type="checkbox" id="embeddedTrackerPortForwarding" />
@@ -1027,11 +1027,11 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
         </table>
     </fieldset>
     <fieldset class="settings">
-        <legend>libtorrent Section&nbsp;(<a href="https://www.libtorrent.org/reference-Settings.html" target="_blank">Open documentation</a>)</legend>
+        <legend>libtorrent Section&nbsp;(<a href="https://www.libtorrent.org/reference-Settings.html" target="_blank">Abrir documentação</a>)</legend>
         <table>
             <tr>
                 <td>
-                    <label for="asyncIOThreads">Asynchronous I/O threads:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#aio_threads" target="_blank">(?)</a></label>
+                    <label for="asyncIOThreads">Threads de E/S assíncronos:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#aio_threads" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="asyncIOThreads" style="width: 15em;" />
@@ -1039,7 +1039,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="hashingThreads">Hashing threads (requires libtorrent >= 2.0):&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#hashing_threads" target="_blank">(?)</a></label>
+                    <label for="hashingThreads">Threads do cálculo do hash (requer libtorrent >= 2.0):&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#hashing_threads" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="hashingThreads" style="width: 15em;" />
@@ -1047,7 +1047,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="filePoolSize">File pool size:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#file_pool_size" target="_blank">(?)</a></label>
+                    <label for="filePoolSize">Tamanho do conjunto de arquivos:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#file_pool_size" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="filePoolSize" style="width: 15em;" />
@@ -1055,7 +1055,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="outstandMemoryWhenCheckingTorrents">Outstanding memory when checking torrents:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#checking_mem_usage" target="_blank">(?)</a></label>
+                    <label for="outstandMemoryWhenCheckingTorrents">Memória excelente quando verificar os torrents:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#checking_mem_usage" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="outstandMemoryWhenCheckingTorrents" style="width: 15em;" />&nbsp;&nbsp;MiB
@@ -1063,7 +1063,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="diskCache">Disk cache (requires libtorrent < 2.0):&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#cache_size" target="_blank">(?)</a></label>
+                    <label for="diskCache">Cache do disco (requer libtorrent < 2.0):&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#cache_size" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="diskCache" style="width: 15em;" />&nbsp;&nbsp;MiB
@@ -1071,7 +1071,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="diskCacheExpiryInterval">Disk cache expiry interval (requires libtorrent < 2.0):&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#cache_expiry" target="_blank">(?)</a></label>
+                    <label for="diskCacheExpiryInterval">Intervalo de expiração do cache do disco (requer libtorrent < 2.0):&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#cache_expiry" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="diskCacheExpiryInterval" style="width: 15em;">&nbsp;&nbsp;s
@@ -1079,7 +1079,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="diskQueueSize">Disk queue size:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#max_queued_disk_bytes" target="_blank">(?)</a></label>
+                    <label for="diskQueueSize">Tamanho da fila do disco:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#max_queued_disk_bytes" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="diskQueueSize" style="width: 15em;">&nbsp;&nbsp;KiB
@@ -1087,42 +1087,42 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="diskIOType">Disk IO type (libtorrent >= 2.0; requires restart):&nbsp;<a href="https://www.libtorrent.org/single-page-ref.html#default-disk-io-constructor" target="_blank">(?)</a></label>
+                    <label for="diskIOType">Tipo de E/S de disco (libtorrent >= 2.0; requer reinicialização):&nbsp;<a href="https://www.libtorrent.org/single-page-ref.html#default-disk-io-constructor" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <select id="diskIOType" style="width: 15em;">
-                        <option value="0">Default</option>
-                        <option value="1">Memory mapped files</option>
-                        <option value="2">POSIX-compliant</option>
+                        <option value="0">Padrão</option>
+                        <option value="1">Arquivos mapeados na memória</option>
+                        <option value="2">Compatível com POSIX</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="diskIOReadMode">Disk IO read mode:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#disk_io_read_mode" target="_blank">(?)</a></label>
+                    <label for="diskIOReadMode">Modo de leitura de E/S do disco:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#disk_io_read_mode" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <select id="diskIOReadMode" style="width: 15em;">
-                        <option value="0">Disable OS cache</option>
-                        <option value="1">Enable OS cache</option>
+                        <option value="0">Desativar cache do sistema</option>
+                        <option value="1">Ativar cache do sistema</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="diskIOWriteMode">Disk IO write mode:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#disk_io_write_mode" target="_blank">(?)</a></label>
+                    <label for="diskIOWriteMode">Modo de escrita de E/S do disco:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#disk_io_write_mode" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <select id="diskIOWriteMode" style="width: 15em;">
-                        <option value="0">Disable OS cache</option>
-                        <option value="1">Enable OS cache</option>
-                        <option value="2">Write-through (requires libtorrent >= 2.0.6)</option>
+                        <option value="0">Desativar cache do sistema</option>
+                        <option value="1">Ativar cache do sistema</option>
+                        <option value="2">Escrita-através (requer libtorrent >= 2.0.6)</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="coalesceReadsAndWrites">Coalesce reads & writes (requires libtorrent < 2.0):&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#coalesce_reads" target="_blank">(?)</a></label>
+                    <label for="coalesceReadsAndWrites">Unir as leituras & gravações (requer libtorrent < 2.0):&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#coalesce_reads" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="checkbox" id="coalesceReadsAndWrites" />
@@ -1130,7 +1130,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="pieceExtentAffinity">Use piece extent affinity:&nbsp;<a href="https://libtorrent.org/single-page-ref.html#piece_extent_affinity" target="_blank">(?)</a></label>
+                    <label for="pieceExtentAffinity">Usar afinidade da extensão dos pedaços:&nbsp;<a href="https://libtorrent.org/single-page-ref.html#piece_extent_affinity" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="checkbox" id="pieceExtentAffinity" />
@@ -1138,7 +1138,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="sendUploadPieceSuggestions">Send upload piece suggestions:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#suggest_mode" target="_blank">(?)</a></label>
+                    <label for="sendUploadPieceSuggestions">Enviar sugestões de pedaços do upload:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#suggest_mode" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="checkbox" id="sendUploadPieceSuggestions" />
@@ -1146,7 +1146,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="sendBufferWatermark">Send buffer watermark:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#send_buffer_watermark" target="_blank">(?)</a></label>
+                    <label for="sendBufferWatermark">Enviar marca d'água do buffer:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#send_buffer_watermark" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="sendBufferWatermark" style="width: 15em;" />&nbsp;&nbsp;KiB
@@ -1154,7 +1154,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="sendBufferLowWatermark">Send buffer low watermark:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#send_buffer_low_watermark" target="_blank">(?)</a></label>
+                    <label for="sendBufferLowWatermark">Enviar marca d'água com buffer baixo:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#send_buffer_low_watermark" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="sendBufferLowWatermark" style="width: 15em;" />&nbsp;&nbsp;KiB
@@ -1162,7 +1162,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="sendBufferWatermarkFactor">Send buffer watermark factor:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#send_buffer_watermark_factor" target="_blank">(?)</a></label>
+                    <label for="sendBufferWatermarkFactor">Enviar fator da marca d'água do buffer:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#send_buffer_watermark_factor" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="sendBufferWatermarkFactor" style="width: 15em;" />&nbsp;&nbsp;%
@@ -1170,7 +1170,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="connectionSpeed">Outgoing connections per second:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#connection_speed" target="_blank">(?)</a></label>
+                    <label for="connectionSpeed">Conexões de saída por segundo:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#connection_speed" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="connectionSpeed" style="width: 15em;" />
@@ -1178,7 +1178,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="socketBacklogSize">Socket backlog size:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#listen_queue_size" target="_blank">(?)</a></label>
+                    <label for="socketBacklogSize">Tamanho do backlog do soquete:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#listen_queue_size" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="socketBacklogSize" style="width: 15em;" />
@@ -1186,7 +1186,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="outgoingPortsMin">Outgoing ports (Min) [0: Disabled]:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#outgoing_port" target="_blank">(?)</a></label>
+                    <label for="outgoingPortsMin">Portas de saída (Mín) [0: Desativado]:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#outgoing_port" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="outgoingPortsMin" style="width: 15em;" />
@@ -1194,7 +1194,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="outgoingPortsMax">Outgoing ports (Max) [0: Disabled]:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#outgoing_port" target="_blank">(?)</a></label>
+                    <label for="outgoingPortsMax">Portas de saída (Máx) [0: Desativado]:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#outgoing_port" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="outgoingPortsMax" style="width: 15em;" />
@@ -1202,7 +1202,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="UPnPLeaseDuration">UPnP lease duration [0: Permanent lease]:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#upnp_lease_duration" target="_blank">(?)</a></label>
+                    <label for="UPnPLeaseDuration">Duração do arrendamento do UPnP [0: Arrendamento permanente]:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#upnp_lease_duration" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="UPnPLeaseDuration" style="width: 15em;" />
@@ -1210,7 +1210,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="peerToS">Type of service (ToS) for connections to peers&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#peer_tos" target="_blank">(?)</a></label>
+                    <label for="peerToS">Tipo de serviço (ToS) para as conexões com os peers&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#peer_tos" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="peerToS" style="width: 15em;" />
@@ -1218,18 +1218,18 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="utpTCPMixedModeAlgorithm">μTP-TCP mixed mode algorithm:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#mixed_mode_algorithm" target="_blank">(?)</a></label>
+                    <label for="utpTCPMixedModeAlgorithm">Algoritmo de modo misto do μTP-TCP:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#mixed_mode_algorithm" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <select id="utpTCPMixedModeAlgorithm" style="width: 15em;">
-                        <option value="0">Prefer TCP</option>
-                        <option value="1">Peer proportional (throttles TCP)</option>
+                        <option value="0">Preferir TCP</option>
+                        <option value="1">Peer proporcional (sufoca o TCP)</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="IDNSupportCheckbox">Support internationalized domain name (IDN):&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#allow_idna" target="_blank">(?)</a></label>
+                    <label for="IDNSupportCheckbox">Suporte a nome internacionalizado de domínio (IDN):&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#allow_idna" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="checkbox" id="IDNSupportCheckbox" />
@@ -1237,7 +1237,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="allowMultipleConnectionsFromTheSameIPAddress">Allow multiple connections from the same IP address:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#allow_multiple_connections_per_ip" target="_blank">(?)</a></label>
+                    <label for="allowMultipleConnectionsFromTheSameIPAddress">Permitir múltiplas conexões do mesmo endereço de IP:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#allow_multiple_connections_per_ip" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="checkbox" id="allowMultipleConnectionsFromTheSameIPAddress" />
@@ -1245,7 +1245,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="validateHTTPSTrackerCertificate">Validate HTTPS tracker certificate:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#validate_https_trackers" target="_blank">(?)</a></label>
+                    <label for="validateHTTPSTrackerCertificate">Validar certificado do tracker HTTPS:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#validate_https_trackers" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="checkbox" id="validateHTTPSTrackerCertificate" />
@@ -1253,7 +1253,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="mitigateSSRF">Server-side request forgery (SSRF) mitigation:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#ssrf_mitigation" target="_blank">(?)</a></label>
+                    <label for="mitigateSSRF">Atenuação da falsificação da requisição do lado do servidor (SSRF):&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#ssrf_mitigation" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="checkbox" id="mitigateSSRF" />
@@ -1261,7 +1261,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="blockPeersOnPrivilegedPorts">Disallow connection to peers on privileged ports:&nbsp;<a href="https://libtorrent.org/single-page-ref.html#no_connect_privileged_ports" target="_blank">(?)</a></label>
+                    <label for="blockPeersOnPrivilegedPorts">Não permitir conexão com peers em portas privilegiadas:&nbsp;<a href="https://libtorrent.org/single-page-ref.html#no_connect_privileged_ports" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="checkbox" id="blockPeersOnPrivilegedPorts" />
@@ -1269,30 +1269,30 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="uploadSlotsBehavior">Upload slots behavior:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#choking_algorithm" target="_blank">(?)</a></label>
+                    <label for="uploadSlotsBehavior">Comportamento dos slots de upload:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#choking_algorithm" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <select id="uploadSlotsBehavior" style="width: 15em;">
-                        <option value="0">Fixed slots</option>
-                        <option value="1">Upload rate based</option>
+                        <option value="0">Slots fixos</option>
+                        <option value="1">Baseado na taxa de upload</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="uploadChokingAlgorithm">Upload choking algorithm:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#seed_choking_algorithm" target="_blank">(?)</a></label>
+                    <label for="uploadChokingAlgorithm">Algoritmo de sufocamento do upload:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#seed_choking_algorithm" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <select id="uploadChokingAlgorithm" style="width: 15em;">
-                        <option value="0">Round-robin</option>
-                        <option value="1">Fastest upload</option>
+                        <option value="0">Pontos-corridos</option>
+                        <option value="1">Upload mais rápido</option>
                         <option value="2">Anti-leech</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label for="announceAllTrackers">Always announce to all trackers in a tier:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#announce_to_all_trackers" target="_blank">(?)</a></label>
+                    <label for="announceAllTrackers">Sempre anunciar em todos os trackers numa camada:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#announce_to_all_trackers" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="checkbox" id="announceAllTrackers" />
@@ -1300,7 +1300,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="announceAllTiers">Always announce to all tiers:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#announce_to_all_tiers" target="_blank">(?)</a></label>
+                    <label for="announceAllTiers">Sempre anunciar em todos as camadas:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#announce_to_all_tiers" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="checkbox" id="announceAllTiers" />
@@ -1308,7 +1308,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="announceIP">IP address reported to trackers (requires restart):&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#announce_ip" target="_blank">(?)</a></label>
+                    <label for="announceIP">Endereço de IP reportado aos trackers (requer reiniciar):&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#announce_ip" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="announceIP" style="width: 15em;" />
@@ -1316,7 +1316,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="maxConcurrentHTTPAnnounces">Max concurrent HTTP announces:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#max_concurrent_http_announces" target="_blank">(?)</a></label>
+                    <label for="maxConcurrentHTTPAnnounces">Máximo de anúncios HTTP simultâneos:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#max_concurrent_http_announces" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="maxConcurrentHTTPAnnounces" style="width: 15em;" />
@@ -1324,7 +1324,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="stopTrackerTimeout">Stop tracker timeout:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#stop_tracker_timeout" target="_blank">(?)</a></label>
+                    <label for="stopTrackerTimeout">Parar o tempo para encerrar o tracker:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#stop_tracker_timeout" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="stopTrackerTimeout" style="width: 15em;" />
@@ -1332,7 +1332,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="peerTurnover">Peer turnover disconnect percentage:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#peer_turnover" target="_blank">(?)</a></label>
+                    <label for="peerTurnover">Porcentagem de desconexão da rotatividade dos peers:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#peer_turnover" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="peerTurnover" style="width: 15em;" />&nbsp;&nbsp;%
@@ -1340,7 +1340,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="peerTurnoverCutoff">Peer turnover threshold percentage:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#peer_turnover" target="_blank">(?)</a></label>
+                    <label for="peerTurnoverCutoff">Porcentagem do limite de rotatividade dos peers:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#peer_turnover" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="peerTurnoverCutoff" style="width: 15em;" />&nbsp;&nbsp;%
@@ -1348,7 +1348,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="peerTurnoverInterval">Peer turnover disconnect interval:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#peer_turnover" target="_blank">(?)</a></label>
+                    <label for="peerTurnoverInterval">Intervalo de desconexão da rotatividade dos peers:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#peer_turnover" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="peerTurnoverInterval" style="width: 15em;" />&nbsp;&nbsp;s
@@ -1356,7 +1356,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             </tr>
             <tr>
                 <td>
-                    <label for="requestQueueSize">Maximum outstanding requests to a single peer:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#max_out_request_queue" target="_blank">(?)</a></label>
+                    <label for="requestQueueSize">Máximo de requisições notáveis para um único peer:&nbsp;<a href="https://www.libtorrent.org/reference-Settings.html#max_out_request_queue" target="_blank">(?)</a></label>
                 </td>
                 <td>
                     <input type="text" id="requestQueueSize" style="width: 15em;" />
@@ -1366,7 +1366,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
     </fieldset>
 </div>
 
-<div style="text-align: center; margin-top: 1em;"><input class="button" type="button" value="Save" onclick="qBittorrent.Preferences.applyPreferences();" /></div>
+<div style="text-align: center; margin-top: 1em;"><input class="button" type="button" value="Salvar" onclick="qBittorrent.Preferences.applyPreferences();" /></div>
 
 <script>
     'use strict';
@@ -1440,9 +1440,9 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
             const disableInput = (sel !== "other");
             const mycb = "<div class='select-watched-folder-editable'>"
                 + "<select id ='cb_watch_" + pos + "' onchange='qBittorrent.Preferences.changeWatchFolderSelect(this)'>"
-                + "<option value='watch_folder'>Monitored folder</option>"
-                + "<option value='default_folder'>Default save location</option>"
-                + "<option value='other'>Other...</option>"
+                + "<option value='watch_folder'>Pasta monitorada</option>"
+                + "<option value='default_folder'>Local padrão do salvamento</option>"
+                + "<option value='other'>Outro...</option>"
                 + "</select>"
                 + "<input id='cb_watch_txt_" + pos + "' type='text' " + (disableInput ? "hidden " : "") + "/>"
                 + "<img src='images/list-add.svg' id='addFolderImg_" + pos + "' alt='Add' style='padding-left:170px;width:16px;cursor:pointer;' onclick='qBittorrent.Preferences.addWatchFolder();' />"
@@ -1726,9 +1726,9 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
                     if (!addresses)
                         return;
 
-                    $('optionalIPAddressToBind').options.add(new Option('All addresses', ''));
-                    $('optionalIPAddressToBind').options.add(new Option('All IPv4 addresses', '0.0.0.0'));
-                    $('optionalIPAddressToBind').options.add(new Option('All IPv6 addresses', '::'));
+                    $('optionalIPAddressToBind').options.add(new Option('Todos os endereços', ''));
+                    $('optionalIPAddressToBind').options.add(new Option('Todos os endereços IPv4', '0.0.0.0'));
+                    $('optionalIPAddressToBind').options.add(new Option('Todos os endereços IPv6', '::'));
                     addresses.forEach(function(item, index) {
                         $('optionalIPAddressToBind').options.add(new Option(item, item));
                     });
@@ -1744,7 +1744,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
                 method: 'get',
                 noCache: true,
                 onFailure: function() {
-                    alert("Could not contact qBittorrent");
+                    alert("Não foi possível contatar o qBittorrent");
                 },
                 onSuccess: function(pref) {
                     if (pref) {
@@ -2558,7 +2558,7 @@ Use ';' to split multiple entries. Can use wildcard '*'."></textarea>
                     'json': json_str,
                 },
                 onFailure: function() {
-                    alert("Unable to save program preferences, qBittorrent is probably unreachable.");
+                    alert("Incapaz de salvar as preferências do programa, o qBittorrent provavelmente é inalcançável.");
                     window.parent.closeWindows();
                 },
                 onSuccess: function() {

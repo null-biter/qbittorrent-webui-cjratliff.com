@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Torrent Upload Speed Limiting</title>
+    <title>Limitando a Velocidade de Upload do Torrent</title>
     <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" />
     <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" />
     <script src="scripts/lib/MooTools-Core-1.6.0-compat-compressed.js"></script>
@@ -15,7 +15,7 @@
 <body>
     <div style="width: 100%; text-align: center; margin: 0 auto; overflow: hidden">
         <div id="uplimitSlider" class="slider">
-            <div id="uplimitUpdate" class="update">Upload limit: <input id="uplimitUpdatevalue" size="6" placeholder="∞" style="text-align: center;"> <span id="upLimitUnit">KiB/s</span></div>
+            <div id="uplimitUpdate" class="update">Limite do upload: <input id="uplimitUpdatevalue" size="6" placeholder="∞" style="text-align: center;"> <span id="upLimitUnit">KiB/s</span></div>
             <div class="sliderWrapper">
                 <div id="uplimitSliderknob" class="sliderknob"></div>
                 <div id="uplimitSliderarea" class="sliderarea"></div>
@@ -56,7 +56,7 @@
                 }
             };
         </script>
-        <input class="button" type="button" id="applyButton" value="Apply" onclick="setUpLimit()" />
+        <input class="button" type="button" id="applyButton" value="Aplicar" onclick="setUpLimit()" />
     </div>
 
     <script>

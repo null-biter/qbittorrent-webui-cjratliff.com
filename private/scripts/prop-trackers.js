@@ -79,19 +79,19 @@ window.qBittorrent.PropTrackers = (function() {
                         let status;
                         switch (tracker.status) {
                             case 0:
-                                status = "Disabled";
+                                status = "Desativado";
                                 break;
                             case 1:
-                                status = "Not contacted yet";
+                                status = "Não contactado ainda";
                                 break;
                             case 2:
-                                status = "Working";
+                                status = "Funcionando";
                                 break;
                             case 3:
-                                status = "Updating...";
+                                status = "Atualizando...";
                                 break;
                             case 4:
-                                status = "Not working";
+                                status = "Não funcionando";
                                 break;
                         }
 
