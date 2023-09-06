@@ -25,7 +25,7 @@
     }
 
     #rssFetchingDisabled {
-        color: red;
+        color: #ce292c;
         font-style: italic;
         margin-bottom: 10px;
     }
@@ -53,13 +53,13 @@
     }
 
     #rssTorrentDetailsName {
-        background-color: #678db2;
+        background-color: #242424;
         padding: 0;
         color: white;
     }
 
     #rssTorrentDetailsDate {
-        background-color: #EFEFEF;
+        background-color: #202020;
     }
 
     #rssDetailsView {
@@ -141,7 +141,7 @@
     <li><a href="#update"><img src="images/view-refresh.svg" alt="Update" /> Atualizar</a></li>
     <li><a href="#markRead"><img src="images/task-complete.svg" alt="Mark items read" /> Marcar itens como lidos</a></li>
     <li class="separator"><a href="#rename"><img src="images/edit-rename.svg" alt="Rename..." /> Renomear...</a></li>
-    <li><a href="#delete"><img src="images/edit-clear.svg" alt="Delete" /> Delete</a></li>
+    <li><a href="#delete"><img src="images/edit-clear.svg" alt="Delete" /> Deletar</a></li>
 
     <li class="separator"><a href="#newSubscription"><img src="images/list-add.svg" alt="New subscription..." /> Nova subscrição...</a></li>
     <li><a href="#newFolder"><img src="images/folder-new.svg" alt="New folder..." /> New folder...</a></li>
@@ -434,7 +434,7 @@
                 // Place in iframe with sandbox attribute to prevent js execution
                 let torrentDescription = document.createRange().createContextualFragment('<iframe sandbox id="rssDescription"></iframe>');
                 $('rssDetailsView').append(torrentDescription);
-                document.getElementById('rssDescription').srcdoc = '<html><head><link rel="stylesheet" type="text/css" href="css/style.css" /></head><body>' + article.description + "</body></html>";
+                document.getElementById('rssDescription').srcdoc = '<html><head><link rel="stylesheet" type="text/css" href="./css/style.css" /> <style> body { background: #202020; color: #c2c2c2; } </style> </head><body>' + article.description + "</body></html>";
 
                 //calculate height to fill screen
                 document.getElementById('rssDescription').style.height =
