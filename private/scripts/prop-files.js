@@ -173,7 +173,7 @@ window.qBittorrent.PropFiles = (function() {
         elem.set('value', priority.toString());
         elem.set('html', html);
         if (selected)
-            elem.setAttribute('selected', '');
+            elem.selected = true;
         return elem;
     };
 
@@ -549,7 +549,7 @@ window.qBittorrent.PropFiles = (function() {
 
         new MochaUI.Window({
             id: 'renamePage',
-            title: "Renaming",
+            title: "Renomeando",
             loadMethod: 'iframe',
             contentURL: 'rename_file.html?hash=' + hash + '&isFolder=' + node.isFolder
                 + '&path=' + encodeURIComponent(path),
@@ -566,7 +566,7 @@ window.qBittorrent.PropFiles = (function() {
     const multiFileRename = function(hash) {
         new MochaUI.Window({
             id: 'multiRenamePage',
-            title: "Renaming",
+            title: "Renomeando",
             data: { hash: hash, selectedRows: torrentFilesTable.selectedRows },
             loadMethod: 'xhr',
             contentURL: 'rename_files.html',

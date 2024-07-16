@@ -22,8 +22,8 @@
 
 .dynamicTable tbody tr.selected,
 .dynamicTable tbody tr:hover {
-    background-color: #747474;
-		color: #f7f7f7;
+    background-color: var(--darkmode-background-alt2);
+    color: var(--darkmode-text-alt)
 }
 
 #transferList tr:hover {
@@ -49,8 +49,8 @@ tr.dynamicTableHeader {
 
 .dynamicTable th {
     background: var(--darkmode-background);
-        color: var(--darkmode-text);
-        border-right: 1px solid var(--darkmode-line-color);
+    color: var(--darkmode-text);
+    border-right: 1px solid var(--darkmode-line-color);
     box-sizing: border-box;
     padding: 4px;
     white-space: nowrap;
@@ -101,9 +101,4 @@ tr.dynamicTableHeader {
     line-height: 0px !important;
     padding-bottom: 0px !important;
     padding-top: 0px !important;
-}
-
-.progressbar_dark {
-    background: var(--darkmode-primary) !important;
-    color: var(--darkmode-background) !important;
 }

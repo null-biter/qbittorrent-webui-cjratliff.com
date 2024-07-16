@@ -28,11 +28,11 @@
 
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('username').focus();
     document.getElementById('username').select();
 
-    document.getElementById('loginform').addEventListener('submit', function(e) {
+    document.getElementById('loginform').addEventListener('submit', function (e) {
         e.preventDefault();
     });
 });
@@ -43,7 +43,7 @@ function submitLoginForm() {
     const xhr = new XMLHttpRequest();
     xhr.open('POST', 'api/v2/auth/login', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=UTF-8');
-    xhr.addEventListener('readystatechange', function() {
+    xhr.addEventListener('readystatechange', function () {
         if (xhr.readyState === 4) { // DONE state
             if ((xhr.status === 200) && (xhr.responseText === "Ok."))
                 location.reload(true);
@@ -51,7 +51,7 @@ function submitLoginForm() {
                 errorMsgElement.textContent = 'Nome de usuário ou senha inválidos.';
         }
     });
-    xhr.addEventListener('error', function() {
+    xhr.addEventListener('error', function () {
         errorMsgElement.textContent = (xhr.responseText !== "")
             ? xhr.responseText
             : 'Incapaz de fazer login; o qBittorrent provavelmente é inalcançável.';

@@ -2,10 +2,10 @@
 <html lang="${LANG}">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8" /> 
     <title>Nome da nova regra</title>
-    <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" />
+    <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" /> 
+    <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" /> 
     <script src="scripts/lib/MooTools-Core-1.6.0-compat-compressed.js"></script>
     <script src="scripts/lib/MooTools-More-1.6.0-compat-compressed.js"></script>
     <script src="scripts/misc.js?locale=${LANG}&v=${CACHEID}"></script>
@@ -15,28 +15,28 @@
         new Keyboard({
             defaultEventType: 'keydown',
             events: {
-                'Enter': (event) => {
+                'Enter': (event) =>{
                     $('submitButton').click();
                     event.preventDefault();
                 },
-                'Escape': (event) => {
+                'Escape': (event) =>{
                     window.parent.MochaUI.closeWindow(window.parent.$('newRulePage'));
                     event.preventDefault();
                 },
-                'Esc': (event) => {
+                'Esc': (event) =>{
                     window.parent.MochaUI.closeWindow(window.parent.$('newRulePage'));
                     event.preventDefault();
                 }
             }
         }).activate();
-        window.addEvent('domready', () => {
+        window.addEvent('domready', () =>{
             $('name').focus();
-            $('submitButton').addEvent('click', (e) => {
+            $('submitButton').addEvent('click', (e) =>{
                 new Event(e).stop();
                 // check field
                 const name = $('name').value.trim();
                 if (name === '') {
-                    alert('Name cannot be empty');
+                    alert('O nome não pode estar vazio');
                     return;
                 }
                 $('submitButton').disabled = true;
@@ -48,7 +48,7 @@
                         ruleName: name,
                         ruleDef: '{}'
                     },
-                    onSuccess: (response) => {
+                    onSuccess: (response) =>{
                         window.parent.qBittorrent.RssDownloader.updateRulesList();
                         window.parent.MochaUI.closeWindow(window.parent.$('newRulePage'));
                     }
@@ -61,9 +61,9 @@
 <body>
     <div style="padding: 10px 10px 0px 10px;">
         <p>Por favor digite o nome da nova regra de download.</p>
-        <input type="text" id="name" style="width: 320px;" />
+        <input type="text" id="name" style="width: 320px;" /> 
         <div style="text-align: center; padding-top: 10px;">
-            <input class="button" type="button" value="OK" id="submitButton" />
+            <input class="button" type="button" value="OK" id="submitButton" /> 
         </div>
     </div>
 </body>

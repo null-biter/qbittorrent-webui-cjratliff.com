@@ -65,7 +65,7 @@ window.qBittorrent.Misc = (function() {
         ];
 
         if ((value === undefined) || (value === null) || (value < 0))
-            return "Unknown";
+            return "Desconhecido";
 
         let i = 0;
         while (value >= 1024.0 && i < 6) {

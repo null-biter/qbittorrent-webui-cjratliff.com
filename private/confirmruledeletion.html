@@ -2,27 +2,27 @@
 <html lang="${LANG}">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Rule deletion confirmation</title>
-    <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" />
+    <meta charset="UTF-8" /> 
+    <title>Confirmação da exclusão da regra</title>
+    <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" /> 
+    <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" /> 
     <script src="scripts/lib/MooTools-Core-1.6.0-compat-compressed.js"></script>
     <script src="scripts/lib/MooTools-More-1.6.0-compat-compressed.js"></script>
     <script>
         'use strict';
 
-        window.addEvent('domready', () => {
+        window.addEvent('domready', () =>{
             const rules = new URI().getData('rules').split('|');
 
             $('cancelBtn').focus();
-            $('cancelBtn').addEvent('click', (e) => {
+            $('cancelBtn').addEvent('click', (e) =>{
                 new Event(e).stop();
                 window.parent.MochaUI.closeWindow(window.parent.$('removeRulePage'));
             });
-            $('confirmBtn').addEvent('click', (e) => {
+            $('confirmBtn').addEvent('click', (e) =>{
                 new Event(e).stop();
                 let completionCount = 0;
-                rules.forEach((rule) => {
+                rules.forEach((rule) =>{
                     new Request({
                         url: 'api/v2/rss/removeRule',
                         noCache: true,
@@ -30,7 +30,7 @@
                         data: {
                             ruleName: decodeURIComponent(rule)
                         },
-                        onComplete: (response) => {
+                        onComplete: (response) =>{
                             ++completionCount;
                             if (completionCount === rules.length) {
                                 window.parent.qBittorrent.RssDownloader.updateRulesList();
@@ -48,8 +48,8 @@
     <div style="padding: 10px 10px 0px 10px;">
         <p>Você tem certeza que você quer remover as regras de download selecionadas?</p>
         <div style="text-align: right;">
-            <input class="button" type="button" id="cancelBtn" value="Não" />
-            <input class="button" type="button" id="confirmBtn" value="Sim" />
+            <input class="button" type="button" id="cancelBtn" value="Não" /> 
+            <input class="button" type="button" id="confirmBtn" value="Sim" /> 
         </div>
     </div>
 </body>

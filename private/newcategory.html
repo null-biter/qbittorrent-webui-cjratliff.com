@@ -2,10 +2,10 @@
 <html lang="${LANG}">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Nova Categoria</title>
-    <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" />
+    <meta charset="UTF-8" /> 
+    <title>New Category</title>
+    <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" /> 
+    <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" /> 
     <script src="scripts/lib/MooTools-Core-1.6.0-compat-compressed.js"></script>
     <script src="scripts/lib/MooTools-More-1.6.0-compat-compressed.js"></script>
     <script src="scripts/misc.js?locale=${LANG}&v=${CACHEID}"></script>
@@ -44,6 +44,10 @@
                 $('categoryName').set('value', window.qBittorrent.Misc.escapeHtml(uriCategoryName));
                 $('savePath').set('value', window.qBittorrent.Misc.escapeHtml(uriSavePath));
                 $('savePath').focus();
+            }
+            else if (uriAction === "createSubcategory") {
+                $('categoryName').set('value', window.qBittorrent.Misc.escapeHtml(uriCategoryName));
+                $('categoryName').focus();
             }
             else {
                 $('categoryName').focus();
@@ -91,11 +95,12 @@
                                 }).send();
                             },
                             onFailure: function() {
-                                alert("Incapaz de criar a categoria " + window.qBittorrent.Misc.escapeHtml(categoryName));
+                                alert("Unable to create category " + window.qBittorrent.Misc.escapeHtml(categoryName));
                             }
                         }).send();
                         break;
                     case "create":
+                    case "createSubcategory":
                         if (!verifyCategoryName(categoryName))
                             return;
 
@@ -133,11 +138,11 @@
 <body>
     <div style="padding: 10px 10px 0px 10px;">
         <p style="font-weight: bold;">Categoria:</p>
-        <input type="text" id="categoryName" style="width: 99%;" />
-        <p style="font-weight: bold;">Caminho do salvamento:</p>
-        <input type="text" id="savePath" style="width: 99%;" />
+        <input type="text" id="categoryName" style="width: 99%;" /> 
+        <p style="font-weight: bold;">Save path:</p>
+        <input type="text" id="savePath" style="width: 99%;" /> 
         <div style="text-align: center; padding-top: 10px;">
-            <input class="button" type="button" value="Adicionar" id="categoryNameButton" />
+            <input class="button" type="button" value="Adicionar" id="categoryNameButton" /> 
         </div>
     </div>
 </body>

@@ -2,26 +2,26 @@
 <html lang="${LANG}">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Deletion confirmation</title>
-    <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" />
+    <meta charset="UTF-8" /> 
+    <title>Confirmação de exclusão</title>
+    <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" /> 
+    <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" /> 
     <script src="scripts/lib/MooTools-Core-1.6.0-compat-compressed.js"></script>
     <script src="scripts/lib/MooTools-More-1.6.0-compat-compressed.js"></script>
     <script>
         'use strict';
 
-        window.addEvent('domready', () => {
+        window.addEvent('domready', () =>{
             const paths = new URI().getData('paths').split('|');
             $('cancelBtn').focus();
-            $('cancelBtn').addEvent('click', (e) => {
+            $('cancelBtn').addEvent('click', (e) =>{
                 new Event(e).stop();
                 window.parent.closeWindows();
             });
-            $('confirmBtn').addEvent('click', (e) => {
+            $('confirmBtn').addEvent('click', (e) =>{
                 new Event(e).stop();
                 let completionCount = 0;
-                paths.forEach((path) => {
+                paths.forEach((path) =>{
                     new Request({
                         url: 'api/v2/rss/removeItem',
                         noCache: true,
@@ -29,7 +29,7 @@
                         data: {
                             path: decodeURIComponent(path)
                         },
-                        onComplete: (response) => {
+                        onComplete: (response) =>{
                             ++completionCount;
                             if (completionCount === paths.length) {
                                 window.parent.qBittorrent.Rss.updateRssFeedList();
@@ -47,8 +47,8 @@
     <div style="padding: 1px 10px 0px 1px;">
         <p>Você tem certeza que você quer apagar os feeds do RSS selecionados?</p>
         <div style="text-align: right;">
-            <input style="padding: 2px 2px;" class="button" type="button" id="cancelBtn" value="Não" />
-            <input style="padding: 2px 2px;" class="button" type="button" id="confirmBtn" value="Sim" />
+            <input style="padding: 2px 2px;" class="button" type="button" id="cancelBtn" value="Não" /> 
+            <input style="padding: 2px 2px;" class="button" type="button" id="confirmBtn" value="Sim" /> 
         </div>
     </div>
 </body>

@@ -3,19 +3,34 @@
         <img src="images/go-down.svg">Status
     </span>
     <ul class="filterList" id="statusFilterList">
-        <li id="all_filter"><a href="#" onclick="setFilter('all');return false;"><img src="images/filter-all.svg" alt="Todos" />Todos (0)</a></li>
-        <li id="downloading_filter"><a href="#" onclick="setFilter('downloading');return false;"><img src="images/downloading.svg" alt="Downloading" />Baixando (0)</a></li>
-        <li id="seeding_filter"><a href="#" onclick="setFilter('seeding');return false;"><img src="images/upload.svg" alt="Seeding" />Seeding (0)</a></li>
-        <li id="completed_filter"><a href="#" onclick="setFilter('completed');return false;"><img src="images/checked-completed.svg" alt="Completed" />Completado (0)</a></li>
-        <li id="resumed_filter"><a href="#" onclick="setFilter('resumed');return false;"><img src="images/torrent-start.svg" alt="Resumed" />Retomado (0)</a></li>
-        <li id="paused_filter"><a href="#" onclick="setFilter('paused');return false;"><img src="images/torrent-stop.svg" alt="Paused" />Pausado (0)</a></li>
-        <li id="active_filter"><a href="#" onclick="setFilter('active');return false;"><img src="images/filter-active.svg" alt="Active" />Ativo (0)</a></li>
-        <li id="inactive_filter"><a href="#" onclick="setFilter('inactive');return false;"><img src="images/filter-inactive.svg" alt="Inactive" />Inativo (0)</a></li>
-        <li id="stalled_filter"><a href="#" onclick="setFilter('stalled');return false;"><img src="images/filter-stalled.svg" alt="Stalled" />Parado (0)</a></li>
-        <li id="stalled_uploading_filter"><a href="#" onclick="setFilter('stalled_uploading');return false;"><img src="images/stalledUP.svg" alt="Stalled Uploading" />Upload parado (0)</a></li>
-        <li id="stalled_downloading_filter"><a href="#" onclick="setFilter('stalled_downloading');return false;"><img src="images/stalledDL.svg" alt="Stalled Downloading" />Download parado (0)</a></li>
-        <li id="checking_filter"><a href="#" onclick="setFilter('checking'); return false;"><img src="images/force-recheck.svg" alt="Checking" />Verificando (0)</a></li>
-        <li id="errored_filter"><a href="#" onclick="setFilter('errored');return false;"><img src="images/error.svg" alt="Errored" />Com erro (0)</a></li>
+        <li id="all_filter"><a href="#" onclick="setFilter('all');return false;"><img src="images/filter-all.svg"
+                    alt="Tudo" /> Todos (0)</a></li>
+        <li id="downloading_filter"><a href="#" onclick="setFilter('downloading');return false;"><img
+                    src="images/downloading.svg" alt="Baixando" /> Baixando (0)</a></li>
+        <li id="seeding_filter"><a href="#" onclick="setFilter('seeding');return false;"><img src="images/upload.svg"
+                    alt="Semeando" /> Semeando (0)</a></li>
+        <li id="completed_filter"><a href="#" onclick="setFilter('completed');return false;"><img
+                    src="images/checked-completed.svg" alt="Completado" /> Completado (0)</a></li>
+        <li id="resumed_filter"><a href="#" onclick="setFilter('resumed');return false;"><img
+                    src="images/torrent-start.svg" alt="Resumed" /> Retomado (0)</a></li>
+        <li id="paused_filter"><a href="#" onclick="setFilter('paused');return false;"><img
+                    src="images/torrent-stop.svg" alt="Pausado" /> Pausado (0)</a></li>
+        <li id="active_filter"><a href="#" onclick="setFilter('active');return false;"><img
+                    src="images/filter-active.svg" alt="Active" /> Ativo (0)</a></li>
+        <li id="inactive_filter"><a href="#" onclick="setFilter('inactive');return false;"><img
+                    src="images/filter-inactive.svg" alt="Inactive" /> Inativo (0)</a></li>
+        <li id="stalled_filter"><a href="#" onclick="setFilter('stalled');return false;"><img
+                    src="images/filter-stalled.svg" alt="Parado" /> Parado (0)</a></li>
+        <li id="stalled_uploading_filter"><a href="#" onclick="setFilter('stalled_uploading');return false;"><img
+                    src="images/stalledUP.svg" alt="Stalled Uploading" /> Upload parado (0)</a></li>
+        <li id="stalled_downloading_filter"><a href="#" onclick="setFilter('stalled_downloading');return false;"><img
+                    src="images/stalledDL.svg" alt="Stalled Downloading" /> Download parado (0)</a></li>
+        <li id="checking_filter"><a href="#" onclick="setFilter('checking'); return false;"><img
+                    src="images/force-recheck.svg" alt="Verificando" /> Verificando (0)</a></li>
+        <li id="moving_filter"><a href="#" onclick="setFilter('moving'); return false;"><img
+                    src="images/set-location.svg" alt="Movendo" /> Movendo (0)</a></li>
+        <li id="errored_filter"><a href="#" onclick="setFilter('errored');return false;"><img src="images/error.svg"
+                    alt="Com erro" /> Com erro (0)</a></li>
     </ul>
 </div>
 <div class="filterWrapper">
@@ -27,7 +42,7 @@
 </div>
 <div class="filterWrapper">
     <span class="filterTitle" onclick="toggleFilterDisplay('tag');">
-        <img src="images/go-down.svg">Etiquetas
+        <img src="images/go-down.svg">Tags
     </span>
     <ul class="filterList" id="tagFilterList">
     </ul>
@@ -47,8 +62,8 @@
         window.qBittorrent = {};
     }
 
-    window.qBittorrent.Filters = (function() {
-        const exports = function() {
+    window.qBittorrent.Filters = (function () {
+        const exports = function () {
             return {
                 categoriesFilterContextMenu: categoriesFilterContextMenu,
                 tagsFilterContextMenu: tagsFilterContextMenu,
@@ -60,25 +75,28 @@
             targets: '.categoriesFilterContextMenuTarget',
             menu: 'categoriesFilterMenu',
             actions: {
-                createCategory: function(element, ref) {
+                createCategory: function (element, ref) {
                     createCategoryFN();
                 },
-                editCategory: function(element, ref) {
+                createSubcategory: function (element, ref) {
+                    createSubcategoryFN(element.id);
+                },
+                editCategory: function (element, ref) {
                     editCategoryFN(element.id);
                 },
-                deleteCategory: function(element, ref) {
+                deleteCategory: function (element, ref) {
                     removeCategoryFN(element.id);
                 },
-                deleteUnusedCategories: function(element, ref) {
+                deleteUnusedCategories: function (element, ref) {
                     deleteUnusedCategoriesFN();
                 },
-                startTorrentsByCategory: function(element, ref) {
+                startTorrentsByCategory: function (element, ref) {
                     startTorrentsByCategoryFN(element.id);
                 },
-                pauseTorrentsByCategory: function(element, ref) {
+                pauseTorrentsByCategory: function (element, ref) {
                     pauseTorrentsByCategoryFN(element.id);
                 },
-                deleteTorrentsByCategory: function(element, ref) {
+                deleteTorrentsByCategory: function (element, ref) {
                     deleteTorrentsByCategoryFN(element.id);
                 }
             },
@@ -86,7 +104,7 @@
                 x: -15,
                 y: 2
             },
-            onShow: function() {
+            onShow: function () {
                 this.options.element.firstChild.click();
             }
         });
@@ -95,22 +113,22 @@
             targets: '.tagsFilterContextMenuTarget',
             menu: 'tagsFilterMenu',
             actions: {
-                createTag: function(element, ref) {
+                createTag: function (element, ref) {
                     createTagFN();
                 },
-                deleteTag: function(element, ref) {
+                deleteTag: function (element, ref) {
                     removeTagFN(element.id);
                 },
-                deleteUnusedTags: function(element, ref) {
+                deleteUnusedTags: function (element, ref) {
                     deleteUnusedTagsFN();
                 },
-                startTorrentsByTag: function(element, ref) {
+                startTorrentsByTag: function (element, ref) {
                     startTorrentsByTagFN(element.id);
                 },
-                pauseTorrentsByTag: function(element, ref) {
+                pauseTorrentsByTag: function (element, ref) {
                     pauseTorrentsByTagFN(element.id);
                 },
-                deleteTorrentsByTag: function(element, ref) {
+                deleteTorrentsByTag: function (element, ref) {
                     deleteTorrentsByTagFN(element.id);
                 }
             },
@@ -118,7 +136,7 @@
                 x: -15,
                 y: 2
             },
-            onShow: function() {
+            onShow: function () {
                 this.options.element.firstChild.click();
             }
         });
@@ -127,13 +145,13 @@
             targets: '.trackersFilterContextMenuTarget',
             menu: 'trackersFilterMenu',
             actions: {
-                resumeTorrentsByTracker: function(element, ref) {
+                resumeTorrentsByTracker: function (element, ref) {
                     resumeTorrentsByTrackerFN(element.id);
                 },
-                pauseTorrentsByTracker: function(element, ref) {
+                pauseTorrentsByTracker: function (element, ref) {
                     pauseTorrentsByTrackerFN(element.id);
                 },
-                deleteTorrentsByTracker: function(element, ref) {
+                deleteTorrentsByTracker: function (element, ref) {
                     deleteTorrentsByTrackerFN(element.id);
                 }
             },
@@ -141,7 +159,7 @@
                 x: -15,
                 y: 2
             },
-            onShow: function() {
+            onShow: function () {
                 this.options.element.firstChild.click();
             }
         });

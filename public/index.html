@@ -2,13 +2,14 @@
 <html lang="${LANG}">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8" /> 
+    <meta name="robots" content="noindex">
     <title>qBittorrent Web UI</title>
-    <link rel="icon" type="image/png" href="images/qbittorrent32.png" />
-    <link rel="icon" type="image/svg+xml" href="images/qbittorrent-tray.svg" />
-    <link rel="stylesheet" type="text/css" href="css/login.css?v=${CACHEID}" />
+    <link rel="icon" type="image/png" href="images/qbittorrent32.png" /> 
+    <link rel="icon" type="image/svg+xml" href="images/qbittorrent-tray.svg" /> 
+    <link rel="stylesheet" type="text/css" href="css/login.css?v=${CACHEID}" /> 
     <noscript>
-        <link rel="stylesheet" type="text/css" href="css/noscript.css?v=${CACHEID}" />
+        <link rel="stylesheet" type="text/css" href="css/noscript.css?v=${CACHEID}" /> 
     </noscript>
     <script src="scripts/login.js?locale=${LANG}&v=${CACHEID}"></script>
 	<script src="scripts/mobile.js"></script>
@@ -21,17 +22,17 @@
     <div id="main">
         <h1>qBittorrent Web UI</h1>
         <div id="logo" class="col">
-            <img src="images/qbittorrent-tray.svg" alt="qBittorrent logo" />
+            <img src="images/qbittorrent-tray.svg" alt="qBittorrent logo" /> 
         </div>
         <div id="formplace" class="col">
             <form id="loginform" method="post" onsubmit="submitLoginForm();">
                 <div class="row">
-                    <label for="username">Nome de usuário</label><br />
-                    <input type="text" id="username" name="username" autocomplete="username" />
+                    <label for="username">Nome de usuário</label><br /> 
+                    <input type="text" id="username" name="username" autocomplete="username" /> 
                 </div>
                 <div class="row">
-                    <label for="password">Senha</label><br />
-                    <input type="password" id="password" name="password" autocomplete="current-password" />
+                    <label for="password">Senha</label><br /> 
+                    <input type="password" id="password" name="password" autocomplete="current-password" /> 
                 </div>
                 <div class="row">
                     <input type="submit" id="login" value="Entrar" />

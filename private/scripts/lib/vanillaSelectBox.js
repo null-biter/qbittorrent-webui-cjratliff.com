@@ -106,7 +106,7 @@ function vanillaSelectBox(domSelector, options) {
         maxWidth: 500,
         minWidth: -1,
         maxHeight: 400,
-        translations: { "all": "All", "item": "item","items": "items", "selectAll": "Select All", "clearAll": "Clear All" },
+        translations: { "all": "Tudo", "item": "item","items": "items", "selectAll": "Select All", "clearAll": "Clear All" },
         search: false,
         placeHolder: "",
         stayOpen: false,

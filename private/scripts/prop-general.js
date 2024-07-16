@@ -103,7 +103,7 @@ window.qBittorrent.PropGeneral = (function() {
                     let temp;
                     // Update Torrent data
                     if (data.seeding_time > 0)
-                        temp = "%1 (seeded for %2)"
+                        temp = "%1 (compartilhado por %2)"
                         .replace("%1", window.qBittorrent.Misc.friendlyDuration(data.time_elapsed))
                         .replace("%2", window.qBittorrent.Misc.friendlyDuration(data.seeding_time));
                     else
@@ -117,12 +117,12 @@ window.qBittorrent.PropGeneral = (function() {
                         .replace("%2", data.nb_connections_limit < 0 ? "∞" : data.nb_connections_limit);
                     $('nb_connections').set('html', temp);
 
-                    temp = "%1 (%2 nesta sessão)"
+                    temp = "%1 (%2 esta sessão)"
                         .replace("%1", window.qBittorrent.Misc.friendlyUnit(data.total_downloaded))
                         .replace("%2", window.qBittorrent.Misc.friendlyUnit(data.total_downloaded_session));
                     $('total_downloaded').set('html', temp);
 
-                    temp = "%1 (%2 nesta sessão)"
+                    temp = "%1 (%2 esta sessão)"
                         .replace("%1", window.qBittorrent.Misc.friendlyUnit(data.total_uploaded))
                         .replace("%2", window.qBittorrent.Misc.friendlyUnit(data.total_uploaded_session));
                     $('total_uploaded').set('html', temp);
@@ -162,7 +162,7 @@ window.qBittorrent.PropGeneral = (function() {
                     if (data.last_seen != -1)
                         temp = new Date(data.last_seen * 1000).toLocaleString();
                     else
-                        temp = "Nunca";
+                        temp = "Never";
                     $('last_seen').set('html', temp);
 
                     $('total_size').set('html', window.qBittorrent.Misc.friendlyUnit(data.total_size));
@@ -226,7 +226,7 @@ window.qBittorrent.PropGeneral = (function() {
             noCache: true,
             method: 'get',
             onFailure: function() {
-                $('error_div').set('html', 'qBittorrent client is not reachable');
+                $('error_div').set('html', 'O Cliente qBittorrent não é alcançável');
                 clearTimeout(loadTorrentDataTimer);
                 loadTorrentDataTimer = loadTorrentData.delay(10000);
             },

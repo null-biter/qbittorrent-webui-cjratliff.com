@@ -2,11 +2,11 @@
 <html lang="${LANG}">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8" /> 
     <title>Adicionar links do torrent</title>
-    <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" />
-    <link rel="stylesheet" href="css/Window.css?v=${CACHEID}" type="text/css" />
+    <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" /> 
+    <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" /> 
+    <link rel="stylesheet" href="css/Window.css?v=${CACHEID}" type="text/css" /> 
     <script src="scripts/lib/MooTools-Core-1.6.0-compat-compressed.js"></script>
     <script src="scripts/lib/MooTools-More-1.6.0-compat-compressed.js"></script>
     <script src="scripts/download.js?v=${CACHEID}"></script>
@@ -17,20 +17,20 @@
     <iframe id="download_frame" name="download_frame" class="invisible" src="about:blank"></iframe>
     <form action="api/v2/torrents/add" enctype="multipart/form-data" method="post" id="downloadForm" style="text-align: center;" target="download_frame" autocorrect="off" autocapitalize="none">
         <div style="text-align: center;">
-            <br />
+            <br /> 
             <h2 class="vcenter">Baixar torrents a partir das URLs ou links magnet deles</h2>
-            <textarea id="urls" rows="6" name="urls"></textarea>
-            <p style="font-size: 85%;">Só um link por linha</p>
-            <fieldset class="settings" style="border: 0; text-align: left; margin-top: 1px;">
+            <textarea id="urls" rows="8" name="urls"></textarea>
+            <p style="font-size: 90%;">Só um link por linha</p>
+            <fieldset class="settings" style="border: 0; text-align: left; margin-top: 4px;">
                 <table style="margin: auto;">
                     <tr>
                         <td>
-                            <label for="autoTMM">Gerenciamento dos torrents:</label>
+                            <label for="autoTMM">Modo de Gerenciamento dos Torrents:</label>
                         </td>
                         <td>
                             <select id="autoTMM" name="autoTMM" onchange="qBittorrent.Download.changeTMM(this)">
-                                <option selected value="false">Manual</option>
-                                <option value="true">Automático</option>
+                                <option value="false">Manual</option>
+                                <option selected value="true">All</option>
                             </select>
                         </td>
                     </tr>
@@ -39,7 +39,7 @@
                             <label for="savepath">Salvar arquivos no local:</label>
                         </td>
                         <td>
-                            <input type="text" id="savepath" name="savepath" style="width: 16em;" />
+                            <input type="text" id="savepath" name="savepath" style="width: 16em;" /> 
                         </td>
                     </tr>
                     <tr>
@@ -47,15 +47,15 @@
                             <label for="cookie">Cookie:</label>
                         </td>
                         <td>
-                            <input type="text" id="cookie" name="cookie" style="width: 16em;" />
+                            <input type="text" id="cookie" name="cookie" style="width: 16em;" /> 
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label for="rename">Renomear torrent:</label>
+                            <label for="rename">Renomear torrent</label>
                         </td>
                         <td>
-                            <input type="text" id="rename" name="rename" style="width: 16em;" />
+                            <input type="text" id="rename" name="rename" style="width: 16em;" /> 
                         </td>
                     </tr>
                     <tr>
@@ -67,7 +67,7 @@
                                 <select id="categorySelect" onchange="qBittorrent.Download.changeCategorySelect(this)">
                                     <option selected value="\other"></option>
                                 </select>
-                                <input name="category" type="text" />
+                                <input name="category" type="text" /> 
                             </div>
                         </td>
                     </tr>
@@ -76,8 +76,16 @@
                             <label for="startTorrent">Iniciar torrent</label>
                         </td>
                         <td>
-                            <input type="hidden" id="startTorrentHidden" name="paused" />
-                            <input type="checkbox" id="startTorrent" />
+                            <input type="hidden" id="startTorrentHidden" name="paused" /> 
+                            <input type="checkbox" id="startTorrent" /> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="addToTopOfQueue">Adicionar ao topo da fila</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="addToTopOfQueue" name="addToTopOfQueue" value="true" /> 
                         </td>
                     </tr>
                     <tr>
@@ -86,7 +94,7 @@
                         </td>
                         <td>
                             <select id="stopCondition" name="stopCondition">
-                                <option selected value="None">Nenhuma</option>
+                                <option selected value="Nenhuma">Nenhuma</option>
                                 <option value="MetadataReceived">Metadados recebidos</option>
                                 <option value="FilesChecked">Arquivos verificados</option>
                             </select>
@@ -97,7 +105,7 @@
                             <label for="skip_checking">Ignorar verificação do hash</label>
                         </td>
                         <td>
-                            <input type="checkbox" id="skip_checking" name="skip_checking" value="true" />
+                            <input type="checkbox" id="skip_checking" name="skip_checking" value="true" /> 
                         </td>
                     </tr>
                     <tr>
@@ -117,15 +125,15 @@
                             <label for="sequentialDownload">Baixar em ordem sequencial</label>
                         </td>
                         <td>
-                            <input type="checkbox" id="sequentialDownload" name="sequentialDownload" value="true" />
+                            <input type="checkbox" id="sequentialDownload" name="sequentialDownload" value="true" /> 
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label for="firstLastPiecePrio">Baixar primeiro os primeiros e os últimos pedaços</label>
+                            <label for="firstLastPiecePrio">Baixar primeiros e últimos pedaços primeiro</label>
                         </td>
                         <td>
-                            <input type="checkbox" id="firstLastPiecePrio" name="firstLastPiecePrio" value="true" />
+                            <input type="checkbox" id="firstLastPiecePrio" name="firstLastPiecePrio" value="true" /> 
                         </td>
                     </tr>
                     <tr>
@@ -133,8 +141,8 @@
                             <label for="dlLimitText">Limite da taxa de download</label>
                         </td>
                         <td>
-                            <input type="hidden" id="dlLimitHidden" name="dlLimit" />
-                            <input type="text" id="dlLimitText" style="width: 16em;" placeholder="KiB/s" />
+                            <input type="hidden" id="dlLimitHidden" name="dlLimit" /> 
+                            <input type="text" id="dlLimitText" style="width: 16em;" placeholder="KB/s" /> 
                         </td>
                     </tr>
                     <tr>
@@ -142,8 +150,8 @@
                             <label for="upLimitText">Limite da taxa de upload</label>
                         </td>
                         <td>
-                            <input type="hidden" id="upLimitHidden" name="upLimit" />
-                            <input type="text" id="upLimitText" style="width: 16em;" placeholder="KiB/s" />
+                            <input type="hidden" id="upLimitHidden" name="upLimit" /> 
+                            <input type="text" id="upLimitText" style="width: 16em;" placeholder="KB/s" /> 
                         </td>
                     </tr>
                 </table>

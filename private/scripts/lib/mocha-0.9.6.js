@@ -236,7 +236,7 @@ MUI.extend({
 				if (contentContainer == contentEl){
 					var getTitle = new RegExp("<title>[\n\r\s]*(.*)[\n\r\s]*</title>", "gmi");
 					var error = getTitle.exec(response.responseText);
-					if (!error) error = 'Unknown';
+					if (!error) error = 'Desconhecido';
 					contentContainer.set('html', '<h3>Error: ' + error + '</h3>');
 					if (args.recipient == 'window'){
 						instance.hideSpinner();
@@ -1583,7 +1583,7 @@ MUI.Window = new Class({
 			// Else focus
 			else {
 				var coordinates = document.getCoordinates();
-				if (this.windowEl.getStyle('left').toInt() > coordinates.width || this.windowEl.getStyle('top').toInt() > coordinates.height){
+				if (this.windowEl.getStyle('left').toInt() > coordinates.width || this.windowEl.getStyle('top').toInt() >coordinates.height){
 					MUI.centerWindow(this.windowEl);
 				}
 				setTimeout(MUI.focusWindow.pass(this.windowEl, this),10);
@@ -2262,7 +2262,8 @@ MUI.Window = new Class({
 			'styles': {
 				'position': 'absolute', // This is set here to make theme transitions smoother
 				'top': 0,
-				'left': 0
+				'left': 0,
+				'height': 'auto'
 			}
 		}).inject(this.windowEl);
 
@@ -2394,7 +2395,7 @@ MUI.Window = new Class({
 			cache.closeButtonEl = new Element('div', {
 				'id': id + '_closeButton',
 				'class': 'mochaCloseButton mochaWindowButton',
-				'title': 'Close'
+				'title': 'Fechar'
 			}).inject(cache.controlsEl);
 		}
 
@@ -5960,7 +5961,7 @@ MUI.Dock = {
 					}
 					// if the window is not minimized and is outside the viewport, center it in the viewport.
 					var coordinates = document.getCoordinates();
-					if (windowEl.getStyle('left').toInt() > coordinates.width || windowEl.getStyle('top').toInt() > coordinates.height){
+					if (windowEl.getStyle('left').toInt() > coordinates.width || windowEl.getStyle('top').toInt() >coordinates.height){
 						MUI.centerWindow(windowEl);
 					}
 				}

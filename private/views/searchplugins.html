@@ -62,12 +62,12 @@
         </div>
     </div>
 
-    <span>Aviso: Certifique-se de obedecer as leis de direitos autorais do seu país quando baixar torrents de qualquer destes motores de busca.</span>
-    <span style="font-style: italic;">Você pode obter novos plugins de motor de busca aqui: <a href="http://plugins.qbittorrent.org" target="_blank">http://plugins.qbittorrent.org</a></span>
-    <div style="width: 100%; margin-top: 8px;">
-        <button class="button" style="width: 33%; height: 4%; line-height: 1.4em;" onclick="qBittorrent.SearchPlugins.installPlugin();">Instalar novo plugin</button>
-        <button class="button" style="width: 33%; height: 4%; line-height: 1.4em;" onclick="qBittorrent.SearchPlugins.checkForUpdates();">Procurar atualizações</button>
-        <button class="button" style="width: 32%; height: 4%; line-height: 1.4em;" onclick="qBittorrent.SearchPlugins.closeSearchWindow('searchPlugins');">Fechar</button>
+    <span>Aviso: Certifique-se de obedecer as leis de copyright do seu país quando baixar torrents de qualquer destes motores de busca.</span>
+    <span style="font-style: italic;">You can get new search engine plugins here: <a href="http://plugins.qbittorrent.org" target="_blank">http://plugins.qbittorrent.org</a></span>
+    <div style="width: 100%; margin-top: 10px;">
+        <button class="button" style="width: 33%; line-height: 1.4em;" onclick="qBittorrent.SearchPlugins.installPlugin();">Instalar novo plugin</button>
+        <button class="button" style="width: 33%; line-height: 1.4em;" onclick="qBittorrent.SearchPlugins.checkForUpdates();">Procurar atualizações</button>
+        <button class="button" style="width: 32%; line-height: 1.4em;" onclick="qBittorrent.SearchPlugins.closeSearchWindow('searchPlugins');">Fechar</button>
     </div>
 </div>
 
@@ -120,7 +120,7 @@
         const installPlugin = function(path) {
             new MochaUI.Window({
                 id: 'installSearchPlugin',
-                title: "Install plugin",
+                title: "Instalar plugin",
                 loadMethod: 'xhr',
                 contentURL: 'views/installsearchplugin.html',
                 scrollbars: false,

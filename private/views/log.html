@@ -93,12 +93,12 @@
                 <option value="8">Critical Messages</option>
             </select>
 
-            <input type="text" id="filterTextInput" onkeyup="window.qBittorrent.Log.filterTextChanged()" placeholder="Filter logs" autocomplete="off" autocorrect="off" autocapitalize="none" />
+            <input type="text" id="filterTextInput" onkeyup="window.qBittorrent.Log.filterTextChanged()" placeholder="Filter logs" autocomplete="off" autocorrect="off" autocapitalize="none" /> 
             <button type="button" title="Clear input" onclick="javascript:document.querySelector('#filterTextInput').value='';window.qBittorrent.Log.filterTextChanged();">Clear</button>
         </div>
 
         <div id="logFilterSummary">
-            <span>Results (showing <span id="numFilteredLogs">0</span> out of <span id="numTotalLogs">0</span>):</span>
+            <span>Results (showing <span id="numFilteredLogs">0</span>out of <span id="numTotalLogs">0</span>):</span>
         </div>
     </div>
 
@@ -141,8 +141,8 @@
 </div>
 
 <ul id="logTableMenu" class="contextMenu">
-    <li><a href="#" class="copyLogDataToClipboard"><img src="images/edit-copy.svg" alt="Copy" />Copy</a></li>
-    <li><a href="#Clear"><img src="images/list-remove.svg" alt="Clear" />Clear</a></li>
+    <li><a href="#" class="copyLogDataToClipboard"><img src="images/edit-copy.svg" alt="Copiar" /> Copiar</a></li>
+    <li><a href="#Clear"><img src="images/list-remove.svg" alt="Clear" /> Clear</a></li>
 </ul>
 
 <script>
@@ -152,8 +152,8 @@
         window.qBittorrent = {};
     }
 
-    window.qBittorrent.Log = (() => {
-        const exports = () => {
+    window.qBittorrent.Log = (() =>{
+        const exports = () =>{
             return {
                 init: init,
                 unload: unload,
@@ -188,13 +188,13 @@
         let selectBox;
         let selectedLogLevels = JSON.parse(LocalPreferences.get('qbt_selected_log_levels')) || ['1', '2', '4', '8'];
 
-        const init = () => {
-            $('logLevelSelect').getElements('option').each((x) => {
+        const init = () =>{
+            $('logLevelSelect').getElements('option').each((x) =>{
                 if (selectedLogLevels.indexOf(x.value.toString()) !== -1) {
-                    x.setAttribute('selected', '');
+                    x.selected = true;
                 }
                 else {
-                    x.removeAttribute('selected');
+                    x.selected = false;
                 }
             });
 
@@ -202,7 +202,7 @@
                 maxHeight: 200,
                 search: false,
                 translations: {
-                    all: 'All',
+                    all: 'Tudo',
                     item: 'item',
                     items: 'items',
                     selectAll: 'Select All',
@@ -215,7 +215,7 @@
                 targets: '.logTableRow',
                 menu: 'logTableMenu',
                 actions: {
-                    Clear: () => {
+                    Clear: () =>{
                         tableInfo[currentSelectedTab].instance.selectedRowsIds().forEach(function(rowId) {
                             tableInfo[currentSelectedTab].instance.removeRow(rowId);
                         });
@@ -238,17 +238,17 @@
             load();
         };
 
-        const unload = () => {
+        const unload = () =>{
             for (let table in tableInfo)
                 resetTableTimer(table);
         };
 
-        const load = () => {
+        const load = () =>{
             customSyncLogDataInterval = null;
             syncLogWithInterval(100);
         };
 
-        const resetTableTimer = (curTab) => {
+        const resetTableTimer = (curTab) =>{
             if (curTab === undefined)
                 curTab = currentSelectedTab;
 
@@ -256,26 +256,26 @@
             tableInfo[curTab].timer = null;
         };
 
-        const syncLogWithInterval = (interval) => {
+        const syncLogWithInterval = (interval) =>{
             if (!tableInfo[currentSelectedTab].progress) {
                 clearTimeout(tableInfo[currentSelectedTab].timer);
                 tableInfo[currentSelectedTab].timer = syncLogData.delay(interval, null, currentSelectedTab);
             }
         };
 
-        const getFilterText = () => {
+        const getFilterText = () =>{
             return inputtedFilterText;
         };
 
-        const getSelectedLevels = () => {
+        const getSelectedLevels = () =>{
             return selectedLogLevels;
         };
 
-        const getSyncLogDataInterval = () => {
+        const getSyncLogDataInterval = () =>{
             return customSyncLogDataInterval ? customSyncLogDataInterval : serverSyncMainDataInterval;
         };
 
-        const logLevelChanged = () => {
+        const logLevelChanged = () =>{
             const value = selectBox.getResult().sort();
 
             if (selectedLogLevels !== value) {
@@ -286,7 +286,7 @@
             }
         };
 
-        const filterTextChanged = () => {
+        const filterTextChanged = () =>{
             const value = $('filterTextInput').get('value').trim();
             if (inputtedFilterText !== value) {
                 inputtedFilterText = value;
@@ -294,15 +294,15 @@
             }
         };
 
-        const logFilterChanged = () => {
+        const logFilterChanged = () =>{
             clearTimeout(logFilterTimer);
-            logFilterTimer = setTimeout((curTab) => {
+            logFilterTimer = setTimeout((curTab) =>{
                 tableInfo[curTab].instance.updateTable(false);
                 updateLabelCount(curTab);
             }, 400, currentSelectedTab);
         };
 
-        const setCurrentTab = (tab) => {
+        const setCurrentTab = (tab) =>{
             if (tab === currentSelectedTab)
                 return;
 
@@ -329,7 +329,7 @@
             updateLabelCount();
         };
 
-        const updateLabelCount = (curTab) => {
+        const updateLabelCount = (curTab) =>{
             if (curTab === undefined)
                 curTab = currentSelectedTab;
 
@@ -337,7 +337,7 @@
             $('numTotalLogs').set('text', tableInfo[curTab].instance.getRowIds().length);
         };
 
-        const syncLogData = (curTab) => {
+        const syncLogData = (curTab) =>{
             if (curTab === undefined)
                 curTab = currentSelectedTab;
 
@@ -365,7 +365,7 @@
                 onFailure: function(response) {
                     const errorDiv = $('error_div');
                     if (errorDiv)
-                        errorDiv.set('text', 'qBittorrent client is not reachable');
+                        errorDiv.set('text', 'O Cliente qBittorrent não é alcançável');
                     tableInfo[curTab].progress = false;
                     syncLogWithInterval(10000);
                 },
@@ -375,7 +375,7 @@
                     if ($('logTabColumn').hasClass('invisible'))
                         return;
 
-                    if (response.length > 0) {
+                    if (response.length >0) {
                         clearTimeout(logFilterTimer);
                         for (let i = 0; i < response.length; ++i) {
                             let row;
@@ -424,4 +424,6 @@
 
         return exports();
     })();
+
+    Object.freeze(window.qBittorrent.Log);
 </script>

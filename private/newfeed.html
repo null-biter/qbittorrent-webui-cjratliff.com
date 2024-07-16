@@ -2,10 +2,10 @@
 <html lang="${LANG}">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8" /> 
     <title>Por favor digite uma URL de feed do RSS</title>
-    <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" />
+    <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" /> 
+    <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" /> 
     <script src="scripts/lib/MooTools-Core-1.6.0-compat-compressed.js"></script>
     <script src="scripts/lib/MooTools-More-1.6.0-compat-compressed.js"></script>
     <script src="scripts/misc.js?locale=${LANG}&v=${CACHEID}"></script>
@@ -15,29 +15,29 @@
         new Keyboard({
             defaultEventType: 'keydown',
             events: {
-                'Enter': (event) => {
+                'Enter': (event) =>{
                     $('submitButton').click();
                     event.preventDefault();
                 },
-                'Escape': (event) => {
+                'Escape': (event) =>{
                     window.parent.closeWindows();
                     event.preventDefault();
                 },
-                'Esc': (event) => {
+                'Esc': (event) =>{
                     window.parent.closeWindows();
                     event.preventDefault();
                 }
             }
         }).activate();
-        window.addEvent('domready', () => {
+        window.addEvent('domready', () =>{
             $('feedURL').focus();
             const path = new URI().getData('path');
-            $('submitButton').addEvent('click', (e) => {
+            $('submitButton').addEvent('click', (e) =>{
                 new Event(e).stop();
                 // check field
                 const feedURL = $('feedURL').value.trim();
                 if (feedURL === '') {
-                    alert('Name cannot be empty');
+                    alert('O nome não pode estar vazio');
                     return;
                 }
 
@@ -51,11 +51,11 @@
                         url: feedURL,
                         path: path ? (path + '\\' + feedURL) : ''
                     },
-                    onSuccess: (response) => {
+                    onSuccess: (response) =>{
                         window.parent.qBittorrent.Rss.updateRssFeedList();
                         window.parent.closeWindows();
                     },
-                    onFailure: (response) => {
+                    onFailure: (response) =>{
                         if (response.status === 409)
                             alert(response.responseText);
                         $('submitButton').disabled = false;
@@ -69,9 +69,9 @@
 <body>
     <div style="padding: 10px 10px 0px 10px;">
         <p style="font-weight: bold;">URL do feed:</p>
-        <input type="text" id="feedURL" style="width: 320px;" />
+        <input type="text" id="feedURL" style="width: 320px;" /> 
         <div style="text-align: center; padding-top: 10px;">
-            <input class="button" type="button" value="OK" id="submitButton" />
+            <input class="button" type="button" value="OK" id="submitButton" /> 
         </div>
     </div>
 </body>

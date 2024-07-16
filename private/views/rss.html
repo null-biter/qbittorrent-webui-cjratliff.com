@@ -21,7 +21,7 @@
     }
 
     .unreadArticle {
-        color: blue;
+        color: var(--darkmode-text);
     }
 
     #rssFetchingDisabled {
@@ -80,20 +80,23 @@
         width: 100%;
         border: none;
     }
-
 </style>
 
 <div id="rssView">
     <div id="rssTopBar">
         <div id="rssFetchingDisabled" class="invisible">
-            A busca de feeds do RSS está desativada agora! Você pode ativá-la nas configurações do programa.
+            A busca de feeds RSS está desativada. Você pode ativá-la nas configurações.
         </div>
         <div id="rssButtonBar">
-            <button class="button" id="newSubscriptionButton" onclick="qBittorrent.Rss.addRSSFeed()">Nova subscrição...</button>
-            <button class="button" id="markReadButton" onclick="qBittorrent.Rss.markSelectedAsRead()">Marcar itens como lidos</button>
-            <button class="button" id="updateAllButton" onclick="qBittorrent.Rss.refreshAllFeeds()">Atualizar todos</button>
+            <button class="button" id="newSubscriptionButton" onclick="qBittorrent.Rss.addRSSFeed()">Nova
+                subscrição</button>
+            <button class="button" id="markReadButton" onclick="qBittorrent.Rss.markSelectedAsRead()">Marcar itens como
+                lidos</button>
+            <button class="button" id="updateAllButton" onclick="qBittorrent.Rss.refreshAllFeeds()">Atualizar
+                todos</button>
 
-            <button class="button" id="rssDownloaderButton" class="alignRight" onclick="qBittorrent.Rss.openRssDownloader()">Baixador do RSS...</button>
+            <button class="button" id="rssDownloaderButton" class="alignRight"
+                onclick="qBittorrent.Rss.openRssDownloader()">Baixador do RSS...</button>
         </div>
     </div>
     <div id="rssContentView">
@@ -138,21 +141,26 @@
 </div>
 
 <ul id="rssFeedMenu" class="contextMenu">
-    <li><a href="#update"><img src="images/view-refresh.svg" alt="Update" /> Atualizar</a></li>
-    <li><a href="#markRead"><img src="images/task-complete.svg" alt="Mark items read" /> Marcar itens como lidos</a></li>
-    <li class="separator"><a href="#rename"><img src="images/edit-rename.svg" alt="Rename..." /> Renomear...</a></li>
-    <li><a href="#delete"><img src="images/edit-clear.svg" alt="Delete" /> Deletar</a></li>
+    <li><a href="#update"><img src="images/view-refresh.svg" alt="Atualizar" /> Atualizar</a></li>
+    <li><a href="#markRead"><img src="images/task-complete.svg" alt="Marcar itens como lidos" /> Marcar itens como
+            lidos</a></li>
+    <li class="separator"><a href="#rename"><img src="images/edit-rename.svg" alt="Renomear..." /> Renomear...</a></li>
+    <li><a href="#delete"><img src="images/edit-clear.svg" alt="Deletar" /> Deletar</a></li>
 
-    <li class="separator"><a href="#newSubscription"><img src="images/list-add.svg" alt="New subscription..." /> Nova subscrição...</a></li>
-    <li><a href="#newFolder"><img src="images/folder-new.svg" alt="New folder..." /> New folder...</a></li>
-    <li class="separator"><a href="#updateAll"><img src="images/view-refresh.svg" alt="Update all feeds" /> Atualizar todos os feeds</a></li>
+    <li class="separator"><a href="#newSubscription"><img src="images/list-add.svg" alt="Nova subscrição..." /> Nova
+            subscrição...</a></li>
+    <li><a href="#newFolder"><img src="images/folder-new.svg" alt="Nova pasta..." /> Nova pasta...</a></li>
+    <li class="separator"><a href="#updateAll"><img src="images/view-refresh.svg" alt="Atualizar todos os feeds" />
+            Atualizar todos os feeds</a></li>
 
-    <li class="separator"><a href="#copyFeedURL" id="CopyFeedURL"><img src="images/edit-copy.svg" alt="Copy feed URL" /> Copiar URL do feed</a></li>
+    <li class="separator"><a href="#copyFeedURL" id="CopyFeedURL"><img src="images/edit-copy.svg"
+                alt="Copiar URL do feed" /> Copiar URL do feed</a></li>
 </ul>
 
 <ul id="rssArticleMenu" class="contextMenu">
-    <li><a href="#Download"><img src="images/downloading.svg" alt="Download torrent" /> Baixar torrent</a></li>
-    <li><a href="#OpenNews"><img src="images/application-url.svg" alt="Open news URL" /> Abrir URL das notícias</a></li>
+    <li><a href="#Download"><img src="images/downloading.svg" alt="Baixar torrent" /> Baixar torrent</a></li>
+    <li><a href="#OpenNews"><img src="images/application-url.svg" alt="Abrir URL das notícias" /> Abrir URL das
+            notícias</a></li>
 </ul>
 
 <script>
@@ -329,7 +337,7 @@
 
             new MochaUI.Window({
                 id: 'newFeed',
-                title: 'Please type a RSS feed URL',
+                title: 'Por favor digite uma URL de feed do RSS',
                 loadMethod: 'iframe',
                 contentURL: 'newfeed.html?path=' + encodeURIComponent(path),
                 scrollbars: false,
@@ -356,7 +364,7 @@
 
             new MochaUI.Window({
                 id: 'newFolder',
-                title: 'Please choose a folder name',
+                title: 'Por favor escolha um nome para pasta',
                 loadMethod: 'iframe',
                 contentURL: 'newfolder.html?path=' + encodeURIComponent(path),
                 scrollbars: false,
@@ -385,7 +393,7 @@
                             return a;
                         }));
             }
-            //filter read articles if "Unread" feed is selected
+            //filter read articles if "Não lido" feed is selected
             if (path === '')
                 visibleArticles = visibleArticles.filter((a) => !a.isRead);
 
@@ -434,12 +442,14 @@
                 // Place in iframe with sandbox attribute to prevent js execution
                 let torrentDescription = document.createRange().createContextualFragment('<iframe sandbox id="rssDescription"></iframe>');
                 $('rssDetailsView').append(torrentDescription);
-                document.getElementById('rssDescription').srcdoc = '<html><head><link rel="stylesheet" type="text/css" href="./css/style.css" /> <style> body { background: #202020; color: #c2c2c2; } </style> </head><body>' + article.description + "</body></html>";
+                document.getElementById('rssDescription').srcdoc = '<html><head><link rel="stylesheet" type="text/css" href="./css/style.css" /> <style>body { background: #202020; color: #c2c2c2; } </style></head><body>' + article.description + "</body></html>";
 
-                //calculate height to fill screen
+                // calculate height to fill screen
                 document.getElementById('rssDescription').style.height =
                     "calc(100% - " + document.getElementById('rssTorrentDetailsName').offsetHeight + "px - "
                     + document.getElementById('rssTorrentDetailsDate').offsetHeight + "px - 5px)";
+
+                // color the background accordingly to match everything else
             }
         };
 
@@ -688,7 +698,7 @@
         const moveItem = (oldPath) => {
             new MochaUI.Window({
                 id: 'renamePage',
-                title: 'Please choose a new name for this RSS feed',
+                title: 'Por favor escolha um novo nome para este feed do RSS',
                 loadMethod: 'iframe',
                 contentURL: 'rename_feed.html?oldPath=' + encodeURIComponent(oldPath),
                 scrollbars: false,
@@ -703,7 +713,7 @@
             const encodedPaths = paths.map((path) => encodeURIComponent(path));
             new MochaUI.Window({
                 id: 'confirmFeedDeletionPage',
-                title: 'Deletion confirmation',
+                title: 'Confirmação de exclusão',
                 loadMethod: 'iframe',
                 contentURL: 'confirmfeeddeletion.html?paths=' + encodeURIComponent(encodedPaths.join('|')),
                 scrollbars: false,
@@ -815,7 +825,7 @@
             const id = 'rssdownloaderpage';
             new MochaUI.Window({
                 id: id,
-                title: 'Rss Downloader',
+                title: 'Baixador do RSS',
                 loadMethod: 'xhr',
                 contentURL: 'views/rssDownloader.html',
                 maximizable: false,

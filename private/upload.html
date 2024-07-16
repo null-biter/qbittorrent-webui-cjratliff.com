@@ -2,21 +2,21 @@
 <html lang="${LANG}">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8" /> 
     <title>Fazer upload do torrent local</title>
-    <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" />
-    <link rel="stylesheet" href="css/Window.css?v=${CACHEID}" type="text/css" />
+    <link rel="stylesheet" href="css/style.css?v=${CACHEID}" type="text/css" /> 
+    <link rel="stylesheet" type="text/css" href="css/Core.css?v=${CACHEID}" /> 
+    <link rel="stylesheet" href="css/Window.css?v=${CACHEID}" type="text/css" /> 
     <script src="scripts/lib/MooTools-Core-1.6.0-compat-compressed.js"></script>
     <script src="scripts/download.js?v=${CACHEID}"></script>
 </head>
 
 <body>
-    <iframe id="upload_frame" name="upload_frame" class="invisible" src="about:blank"></iframe>
+    <iframe id="upload_frame" name="upload_frame" class="invisible" title="" src="about:blank"></iframe>
     <form action="api/v2/torrents/add" enctype="multipart/form-data" method="post" id="uploadForm" style="text-align: center;" target="upload_frame" autocorrect="off" autocapitalize="none">
         <div style="margin-top: 15px; display: inline-block; border: 1px solid lightgrey; border-radius: 4px;">
 			<label class="custom-file-upload">
-				<input type="file" class="fileselect" id="fileselect" accept="application/x-bittorrent, .torrent" name="fileselect[]" multiple />
+				<input type="file" class="fileselect" id="fileselect" accept="application/x-bittorrent, .torrent" name="fileselect[]" multiple /> 
 				Enviar Arquivos
 			</label>
         </div>
@@ -24,12 +24,12 @@
             <table style="margin: auto;">
                 <tr>
                     <td>
-                        <label for="autoTMM">Gerenciamento dos Torrents:</label>
+                        <label for="autoTMM">Modo de Gerenciamento dos Torrents:</label>
                     </td>
                     <td>
                         <select id="autoTMM" name="autoTMM" onchange="qBittorrent.Download.changeTMM(this)">
-                            <option value="false">Manual</option>
-                            <option selected value="true">Automático</option>
+                            <option selected value="false">Manual</option>
+                            <option value="true">Automático</option>
                         </select>
                     </td>
                 </tr>
@@ -38,7 +38,7 @@
                         <label for="savepath">Salvar arquivos no local:</label>
                     </td>
                     <td>
-                        <input type="text" id="savepath" name="savepath" style="width: 16em;" />
+                        <input type="text" id="savepath" name="savepath" style="width: 16em;" /> 
                     </td>
                 </tr>
                 <tr>
@@ -46,7 +46,7 @@
                         <label for="rename">Renomear torrent</label>
                     </td>
                     <td>
-                        <input type="text" id="rename" name="rename" style="width: 16em;" />
+                        <input type="text" id="rename" name="rename" style="width: 16em;" /> 
                     </td>
                 </tr>
                 <tr>
@@ -58,7 +58,7 @@
                             <select id="categorySelect" onchange="qBittorrent.Download.changeCategorySelect(this)">
                                 <option selected value="\other"></option>
                             </select>
-                            <input name="category" type="text" />
+                            <input name="category" type="text" /> 
                         </div>
                     </td>
                 </tr>
@@ -67,8 +67,16 @@
                         <label for="startTorrent">Iniciar torrent</label>
                     </td>
                     <td>
-                        <input type="hidden" id="startTorrentHidden" name="paused" />
-                        <input type="checkbox" id="startTorrent" />
+                        <input type="hidden" id="startTorrentHidden" name="paused" /> 
+                        <input type="checkbox" id="startTorrent" /> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="addToTopOfQueue">Adicionar ao topo da fila</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="addToTopOfQueue" name="addToTopOfQueue" value="true" /> 
                     </td>
                 </tr>
                 <tr>
@@ -77,7 +85,7 @@
                     </td>
                     <td>
                         <select id="stopCondition" name="stopCondition">
-                            <option selected value="None">Nenhuma</option>
+                            <option selected value="Nenhuma">Nenhuma</option>
                             <option value="MetadataReceived">Metadados recebidos</option>
                             <option value="FilesChecked">Arquivos verificados</option>
                         </select>
@@ -88,7 +96,7 @@
                         <label for="skip_checking">Ignorar verificação do hash</label>
                     </td>
                     <td>
-                        <input type="checkbox" id="skip_checking" name="skip_checking" value="true" />
+                        <input type="checkbox" id="skip_checking" name="skip_checking" value="true" /> 
                     </td>
                 </tr>
                 <tr>
@@ -108,15 +116,15 @@
                         <label for="sequentialDownload">Baixar em ordem sequencial</label>
                     </td>
                     <td>
-                        <input type="checkbox" id="sequentialDownload" name="sequentialDownload" value="true" />
+                        <input type="checkbox" id="sequentialDownload" name="sequentialDownload" value="true" /> 
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="firstLastPiecePrio">Baixar primeiro os primeiros e os últimos pedaços</label>
+                        <label for="firstLastPiecePrio">Baixar primeiros e últimos pedaços primeiro</label>
                     </td>
                     <td>
-                        <input type="checkbox" id="firstLastPiecePrio" name="firstLastPiecePrio" value="true" />
+                        <input type="checkbox" id="firstLastPiecePrio" name="firstLastPiecePrio" value="true" /> 
                     </td>
                 </tr>
                 <tr>
@@ -124,8 +132,8 @@
                         <label for="dlLimitText">Limite da taxa de download</label>
                     </td>
                     <td>
-                        <input type="hidden" id="dlLimitHidden" name="dlLimit" />
-                        <input type="text" id="dlLimitText" style="width: 16em;" placeholder="KiB/s" />
+                        <input type="hidden" id="dlLimitHidden" name="dlLimit" /> 
+                        <input type="text" id="dlLimitText" style="width: 16em;" placeholder="KB/s" /> 
                     </td>
                 </tr>
                 <tr>
@@ -133,13 +141,13 @@
                         <label for="upLimitText">Limite da taxa de upload</label>
                     </td>
                     <td>
-                        <input type="hidden" id="upLimitHidden" name="upLimit" />
-                        <input type="text" id="upLimitText" style="width: 16em;" placeholder="KiB/s" />
+                        <input type="hidden" id="upLimitHidden" name="upLimit" /> 
+                        <input type="text" id="upLimitText" style="width: 16em;" placeholder="KB/s" /> 
                     </td>
                 </tr>
             </table>
             <div id="submitbutton" style="margin-top: 30px; text-align: center;">
-                <button class="download" id="button" type="submit"</button>
+                <button class="download" id="button" type="submit"></button>
             </div>
         </fieldset>
     </form>
@@ -162,6 +170,10 @@
             if (submitted)
                 window.parent.closeWindows();
         });
+
+        if ((Browser.platform === 'ios') || ((Browser.platform === 'mac') && (navigator.maxTouchPoints >1))) {
+            $('fileselect').accept = ".torrent";
+        }
     </script>
     <div id="upload_spinner" class="mochaSpinner"></div>
 </body>

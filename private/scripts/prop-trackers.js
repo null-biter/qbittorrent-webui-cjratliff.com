@@ -82,7 +82,7 @@ window.qBittorrent.PropTrackers = (function() {
                                 status = "Desativado";
                                 break;
                             case 1:
-                                status = "Não contactado ainda";
+                                status = "Não contatado ainda";
                                 break;
                             case 2:
                                 status = "Funcionando";
@@ -169,7 +169,7 @@ window.qBittorrent.PropTrackers = (function() {
             return;
         new MochaUI.Window({
             id: 'trackersPage',
-            title: "Add trackers",
+            title: "Adicionar trackers",
             loadMethod: 'iframe',
             contentURL: 'addtrackers.html?hash=' + current_hash,
             scrollbars: true,
@@ -193,7 +193,7 @@ window.qBittorrent.PropTrackers = (function() {
         const trackerUrl = encodeURIComponent(element.childNodes[1].innerText);
         new MochaUI.Window({
             id: 'trackersPage',
-            title: "Tracker editing",
+            title: "Editar Tracker",
             loadMethod: 'iframe',
             contentURL: 'edittracker.html?hash=' + current_hash + '&url=' + trackerUrl,
             scrollbars: true,
